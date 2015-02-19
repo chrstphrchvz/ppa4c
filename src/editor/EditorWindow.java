@@ -6,20 +6,30 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
+
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.Box;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class EditorWindow extends JFrame {
+public class EditorWindow extends JFrame 
+	implements	ActionListener{
 
 	private JPanel contentPane;
 
@@ -195,6 +205,8 @@ public class EditorWindow extends JFrame {
                                                                 jLabel5.setFont(new java.awt.Font("Lucida Console", 0, 13)); // NOI18N
                                                                 jLabel5.setText("}");
                                                                 formScrollPane.setViewportView(formSubPanel);
+                                                                
+                                                                jButton1.addActionListener(this);
         pack();
 	}
     private javax.swing.JButton jButton1;
@@ -224,4 +236,21 @@ public class EditorWindow extends JFrame {
     private Component verticalGlue;
     private JSplitPane splitPane;
     private JScrollPane formScrollPane;
+
+	public void actionPerformed(ActionEvent e) {
+		if (jComboBox2.getSelectedItem() == "printf")
+		JOptionPane.showMessageDialog(null,
+				"Great job!\n\n"
+				+ "Program output:\n"
+						+ "Hello World!",
+						"Results",
+						JOptionPane.INFORMATION_MESSAGE);
+		else
+		JOptionPane.showMessageDialog(null,
+				"Try again!\n\n" 
+				+ "Hint: printf() sends text to the user,\n"
+				+ "while scanf() gets text from the user.",
+				"Results",
+				JOptionPane.ERROR_MESSAGE);
+		}
 }
