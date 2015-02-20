@@ -5,11 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
-
 import javax.swing.JLabel;
 
 import java.awt.Font;
@@ -18,18 +14,20 @@ import javax.swing.BoxLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Box;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextArea;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 
-public class EditorWindow extends JFrame 
-	implements	ActionListener{
+public class EditorWindow extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 
@@ -53,204 +51,185 @@ public class EditorWindow extends JFrame
 	 * Create the frame.
 	 */
 	public EditorWindow() {
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setBounds(100, 100, 450, 300);
-//		contentPane = new JPanel();
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-//		contentPane.setLayout(new BorderLayout(0, 0));
-//		setContentPane(contentPane);
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        formPanel = new javax.swing.JPanel();
-        pseudocodeScrollPane = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        formLabel = new javax.swing.JLabel();
-        pseudocodeLabel = new javax.swing.JLabel();
+		jPanel3 = new JPanel();
+		jLabel1 = new JLabel();
+		jPanel4 = new JPanel();
+		jButton1 = new JButton();
+		jButton2 = new JButton();
+		formPanel = new JPanel();
+		pseudocodeScrollPane = new JScrollPane();
+		jTextArea1 = new JTextArea();
+		formLabel = new JLabel();
+		pseudocodeLabel = new JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Topic: Exercise 1");
+		jLabel1.setText("Topic: Exercise 1");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3Layout.setHorizontalGroup(
-        	jPanel3Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel3Layout.createSequentialGroup()
-        			.addContainerGap()
-        			.addComponent(jLabel1)
-        			.addContainerGap(789, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-        	jPanel3Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel3Layout.createSequentialGroup()
-        			.addContainerGap()
-        			.addComponent(jLabel1)
-        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3.setLayout(jPanel3Layout);
+		GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
+		jPanel3Layout.setHorizontalGroup(jPanel3Layout.createParallelGroup(
+				Alignment.LEADING).addGroup(
+				jPanel3Layout.createSequentialGroup().addContainerGap()
+						.addComponent(jLabel1)
+						.addContainerGap(789, Short.MAX_VALUE)));
+		jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(
+				Alignment.LEADING).addGroup(
+				jPanel3Layout
+						.createSequentialGroup()
+						.addContainerGap()
+						.addComponent(jLabel1)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE,
+								Short.MAX_VALUE)));
+		jPanel3.setLayout(jPanel3Layout);
 
-        jButton1.setText("Check work >>");
-//        jButton1.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                jButton1ActionPerformed(evt);
-//            }
-//        });
+		jButton1.setText("Check work >>");
 
-        jButton2.setText("<< Description");
-        getContentPane().setLayout(new BorderLayout(0, 0));
+		jButton2.setText("<< Description");
+		getContentPane().setLayout(new BorderLayout(0, 0));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(javax.swing.UIManager.getDefaults().getColor("ToolTip.background"));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("start\n   output to terminal \"Hello world!\"\n   report success to operating system\nfinish");
-        pseudocodeScrollPane.setViewportView(jTextArea1);
+		jTextArea1.setEditable(false);
+		jTextArea1.setBackground(UIManager.getDefaults().getColor(
+				"ToolTip.background"));
+		jTextArea1.setColumns(20);
+		jTextArea1.setRows(5);
+		jTextArea1
+				.setText("start\n   output to terminal \"Hello world!\"\n   report success to operating system\nfinish");
+		pseudocodeScrollPane.setViewportView(jTextArea1);
 
-        formLabel.setText("Your work:");
+		formLabel.setText("Your work:");
 
-        pseudocodeLabel.setText("Pseudocode:");
-        
-        formPanel.setLayout(new BorderLayout(0, 0));
-        formPanel.add(formLabel, BorderLayout.NORTH);
-        
-        splitPane = new JSplitPane();
-        getContentPane().add(splitPane, BorderLayout.CENTER);
-        
-        JPanel pseudocodePanel = new JPanel();
-        splitPane.setLeftComponent(pseudocodePanel);
-        pseudocodePanel.setLayout(new BorderLayout(0, 0));
-        getContentPane().add(jPanel4, BorderLayout.SOUTH);
-        jPanel4.setLayout(new BorderLayout(0, 0));
-        jPanel4.add(jButton2, BorderLayout.WEST);
-        jPanel4.add(jButton1, BorderLayout.EAST);
-        getContentPane().add(jPanel3, BorderLayout.NORTH);
-        pseudocodePanel.add(pseudocodeScrollPane, BorderLayout.CENTER);
-        pseudocodePanel.add(pseudocodeLabel, BorderLayout.NORTH);
-        splitPane.setRightComponent(formPanel);
-        
-        formScrollPane = new JScrollPane();
-        formPanel.add(formScrollPane, BorderLayout.CENTER);
-        formSubPanel = new javax.swing.JPanel();
-        
-                formSubPanel.setBackground(java.awt.SystemColor.text);
-                formSubPanel.setLayout(new BoxLayout(formSubPanel, BoxLayout.Y_AXIS));
-                
-                
-                
-                panel = new JPanel();
-                FlowLayout flowLayout = (FlowLayout) panel.getLayout();
-                flowLayout.setAlignment(FlowLayout.LEFT);
-                formSubPanel.add(panel);
-                jLabel6 = new javax.swing.JLabel();
-                panel.add(jLabel6);
-                
-                        jLabel6.setFont(new java.awt.Font("Lucida Console", 0, 13)); // NOI18N
-                        jLabel6.setText("#include <stdio.h>");
-                        
-                        panel_4 = new JPanel();
-                        FlowLayout flowLayout_1 = (FlowLayout) panel_4.getLayout();
-                        flowLayout_1.setAlignment(FlowLayout.LEFT);
-                        formSubPanel.add(panel_4);
-                        jLabel2 = new javax.swing.JLabel();
-                        panel_4.add(jLabel2);
-                        
-                                jLabel2.setFont(new java.awt.Font("Lucida Console", 0, 13)); // NOI18N
-                                jLabel2.setText("int main(void){");
-                                
-                                panel_1 = new JPanel();
-                                FlowLayout flowLayout_2 = (FlowLayout) panel_1.getLayout();
-                                flowLayout_2.setAlignment(FlowLayout.LEFT);
-                                formSubPanel.add(panel_1);
-                                
-                                label = new JLabel();
-                                label.setText("    ");
-                                label.setFont(new Font("Lucida Console", Font.PLAIN, 13));
-                                panel_1.add(label);
-                                jComboBox2 = new javax.swing.JComboBox();
-                                panel_1.add(jComboBox2);
-                                
-                                        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "printf", "scanf" }));
-                                        jComboBox2.setSelectedIndex(-1);
-                                        jLabel3 = new javax.swing.JLabel();
-                                        panel_1.add(jLabel3);
-                                        
-                                                jLabel3.setFont(new java.awt.Font("Lucida Console", 0, 13)); // NOI18N
-                                                jLabel3.setText("(\"Hello world!\");");
-                                                
-                                                panel_2 = new JPanel();
-                                                FlowLayout flowLayout_3 = (FlowLayout) panel_2.getLayout();
-                                                flowLayout_3.setAlignment(FlowLayout.LEFT);
-                                                formSubPanel.add(panel_2);
-                                                
-                                                label_1 = new JLabel();
-                                                panel_2.add(label_1);
-                                                label_1.setText("    ");
-                                                label_1.setFont(new Font("Lucida Console", Font.PLAIN, 13));
-                                                jLabel4 = new javax.swing.JLabel();
-                                                panel_2.add(jLabel4);
-                                                
-                                                        jLabel4.setFont(new java.awt.Font("Lucida Console", 0, 13)); // NOI18N
-                                                        jLabel4.setText("return 0;");
-                                                        
-                                                        panel_3 = new JPanel();
-                                                        FlowLayout flowLayout_4 = (FlowLayout) panel_3.getLayout();
-                                                        flowLayout_4.setAlignment(FlowLayout.LEFT);
-                                                        formSubPanel.add(panel_3);
-                                                        jLabel5 = new javax.swing.JLabel();
-                                                        panel_3.add(jLabel5);
-                                                        
-                                                                jLabel5.setFont(new java.awt.Font("Lucida Console", 0, 13)); // NOI18N
-                                                                jLabel5.setText("}");
-                                                                formScrollPane.setViewportView(formSubPanel);
-                                                                
-                                                                jButton1.addActionListener(this);
-        pack();
+		pseudocodeLabel.setText("Pseudocode:");
+
+		formPanel.setLayout(new BorderLayout(0, 0));
+		formPanel.add(formLabel, BorderLayout.NORTH);
+
+		splitPane = new JSplitPane();
+		getContentPane().add(splitPane, BorderLayout.CENTER);
+
+		JPanel pseudocodePanel = new JPanel();
+		splitPane.setLeftComponent(pseudocodePanel);
+		pseudocodePanel.setLayout(new BorderLayout(0, 0));
+		getContentPane().add(jPanel4, BorderLayout.SOUTH);
+		jPanel4.setLayout(new BorderLayout(0, 0));
+		jPanel4.add(jButton2, BorderLayout.WEST);
+		jPanel4.add(jButton1, BorderLayout.EAST);
+		getContentPane().add(jPanel3, BorderLayout.NORTH);
+		pseudocodePanel.add(pseudocodeScrollPane, BorderLayout.CENTER);
+		pseudocodePanel.add(pseudocodeLabel, BorderLayout.NORTH);
+		splitPane.setRightComponent(formPanel);
+
+		formScrollPane = new JScrollPane();
+		formPanel.add(formScrollPane, BorderLayout.CENTER);
+		formSubPanel = new JPanel();
+
+		formSubPanel.setBackground(java.awt.SystemColor.text);
+		formSubPanel.setLayout(new BoxLayout(formSubPanel, BoxLayout.Y_AXIS));
+
+		linePanel1 = new JPanel();
+		FlowLayout fl_linePanel1 = (FlowLayout) linePanel1.getLayout();
+		fl_linePanel1.setAlignment(FlowLayout.LEFT);
+		formSubPanel.add(linePanel1);
+		lineLabel1 = new JLabel();
+		linePanel1.add(lineLabel1);
+
+		lineLabel1.setText("<html><code>#include &lt;stdio.h&gt;</code></html>");
+		linePanel2 = new JPanel();
+		FlowLayout fl_linePanel2 = (FlowLayout) linePanel2.getLayout();
+		fl_linePanel2.setAlignment(FlowLayout.LEFT);
+		formSubPanel.add(linePanel2);
+		lineLabel2 = new JLabel();
+		linePanel2.add(lineLabel2);
+
+		lineLabel2.setText("<html><code>int main(void){</code></html>");
+
+		linePanel3 = new JPanel();
+		FlowLayout fl_linePanel3 = (FlowLayout) linePanel3.getLayout();
+		fl_linePanel3.setAlignment(FlowLayout.LEFT);
+		formSubPanel.add(linePanel3);
+
+		lineLabel3_1 = new JLabel();
+		lineLabel3_1.setText("<html><code>    </code></html>");
+		linePanel3.add(lineLabel3_1);
+		lineComboBox3_2 = new JComboBox<String>();
+		linePanel3.add(lineComboBox3_2);
+
+		lineComboBox3_2.setModel(new DefaultComboBoxModel<String>(new String[] {
+				"<html><code>printf</code></html>", "<html><code>scanf</code></html>" }));
+		lineComboBox3_2.setSelectedIndex(-1);
+		lineLabel3_3 = new JLabel();
+		linePanel3.add(lineLabel3_3);
+
+		lineLabel3_3.setText("<html><code>(\"Hello world!\");</code></html>");
+
+		linePanel4 = new JPanel();
+		FlowLayout fl_linePanel4 = (FlowLayout) linePanel4.getLayout();
+		fl_linePanel4.setAlignment(FlowLayout.LEFT);
+		formSubPanel.add(linePanel4);
+
+		lineLabel4_1 = new JLabel();
+		linePanel4.add(lineLabel4_1);
+		lineLabel4_1.setText("<html><code>    </code></html>");
+		lineLabel4_2 = new JLabel();
+		linePanel4.add(lineLabel4_2);
+
+		lineLabel4_2.setText("<html><code>return 0;</code></html>");
+
+		linePanel5 = new JPanel();
+		FlowLayout fl_linePanel5 = (FlowLayout) linePanel5.getLayout();
+		fl_linePanel5.setAlignment(FlowLayout.LEFT);
+		formSubPanel.add(linePanel5);
+		lineLabel5 = new JLabel();
+		linePanel5.add(lineLabel5);
+
+		lineLabel5.setText("<html><code>}</code></html>");
+		formScrollPane.setViewportView(formSubPanel);
+
+		jButton1.addActionListener(this);
+		pack();
 	}
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel formLabel;
-    private javax.swing.JLabel pseudocodeLabel;
-    private javax.swing.JPanel formSubPanel;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel formPanel;
-    private javax.swing.JScrollPane pseudocodeScrollPane;
-    private javax.swing.JTextArea jTextArea1;
-    private JPanel panel;
-    private JPanel panel_1;
-    private JPanel panel_2;
-    private JPanel panel_3;
-    private JPanel panel_4;
-    private JLabel label;
-    private JLabel label_1;
-    private Component verticalGlue;
-    private JSplitPane splitPane;
-    private JScrollPane formScrollPane;
+
+	private JButton jButton1;
+	private JButton jButton2;
+	private JComboBox<String> lineComboBox3_2;
+	private JLabel jLabel1;
+	private JLabel lineLabel2;
+	private JLabel lineLabel3_3;
+	private JLabel lineLabel4_2;
+	private JLabel lineLabel5;
+	private JLabel lineLabel1;
+	private JLabel formLabel;
+	private JLabel pseudocodeLabel;
+	private JPanel formSubPanel;
+	private JPanel jPanel3;
+	private JPanel jPanel4;
+	private JPanel formPanel;
+	private JScrollPane pseudocodeScrollPane;
+	private JTextArea jTextArea1;
+	private JPanel linePanel1;
+	private JPanel linePanel3;
+	private JPanel linePanel4;
+	private JPanel linePanel5;
+	private JPanel linePanel2;
+	private JLabel lineLabel3_1;
+	private JLabel lineLabel4_1;
+	private JSplitPane splitPane;
+	private JScrollPane formScrollPane;
 
 	public void actionPerformed(ActionEvent e) {
-		if (jComboBox2.getSelectedItem() == "printf")
-		JOptionPane.showMessageDialog(null,
-				"Great job!\n\n"
-				+ "Program output:\n"
-						+ "Hello World!",
-						"Results",
-						JOptionPane.INFORMATION_MESSAGE);
+		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
+			JOptionPane.showMessageDialog(null, "<html>"
+					+ "Great job!<br><br>"
+					+ "Program output:<br>"
+					+ "<code>Hello World!</code>"
+					+ "</html>", "Results",
+					JOptionPane.INFORMATION_MESSAGE);
 		else
-		JOptionPane.showMessageDialog(null,
-				"Try again!\n\n" 
-				+ "Hint: printf() sends text to the user,\n"
-				+ "while scanf() gets text from the user.",
-				"Results",
-				JOptionPane.ERROR_MESSAGE);
-		}
+			JOptionPane.showMessageDialog(null, "<html>"
+					+ "Try again!<br><br>"
+					+ "Hint: <code>printf()</code> sends text to the user,<br>"
+					+ "while <code>scanf()</code> gets text from the user."
+					+ "</html>", "Results",
+					JOptionPane.ERROR_MESSAGE);
+	}
 }

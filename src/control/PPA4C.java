@@ -28,8 +28,7 @@ public class PPA4C {
 	    }
 		
 		//Current task: prototype practice environment window
-		EditorWindow editorWindow = new EditorWindow();
-		editorWindow.main(null);
+		EditorWindow.main(null);
 	}
 
 }
