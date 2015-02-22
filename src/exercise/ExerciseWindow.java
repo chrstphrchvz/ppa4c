@@ -1,4 +1,4 @@
-package editor;
+package exercise;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -27,8 +27,9 @@ import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.JEditorPane;
+import java.awt.CardLayout;
 
-public class EditorWindow extends JFrame implements ActionListener {
+public class ExerciseWindow extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 
@@ -39,7 +40,7 @@ public class EditorWindow extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EditorWindow frame = new EditorWindow();
+					ExerciseWindow frame = new ExerciseWindow();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +52,7 @@ public class EditorWindow extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public EditorWindow() {
+	public ExerciseWindow() {
 		jPanel4 = new JPanel();
 		jButton1 = new JButton();
 		jButton2 = new JButton();
@@ -99,7 +100,7 @@ public class EditorWindow extends JFrame implements ActionListener {
 		pseudocodeScrollPane.setViewportView(pseudocodeInsidePanel);
 		pseudocodeInsidePanel.setLayout(new BorderLayout(0, 0));
 		pseudocodeEditorPane = new JEditorPane();
-		pseudocodeInsidePanel.add(pseudocodeEditorPane);
+		pseudocodeInsidePanel.add(pseudocodeEditorPane, BorderLayout.CENTER);
 		pseudocodeEditorPane.setEditable(false);
 		pseudocodeEditorPane.setBackground(UIManager.getDefaults().getColor(
 				"ToolTip.background"));
@@ -181,7 +182,7 @@ public class EditorWindow extends JFrame implements ActionListener {
 		/* Based on tutorial at 
 		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
 		 */
-		java.net.URL pseudocodeURL = EditorWindow.class.getResource(
+		java.net.URL pseudocodeURL = ExerciseWindow.class.getResource(
                 "Pseudocode.txt");
 		if (pseudocodeURL != null) {
 		    try {

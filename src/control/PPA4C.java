@@ -2,7 +2,7 @@ package control;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import editor.EditorWindow;
+import exercise.ExerciseWindow;
 public class PPA4C {
 
 	public static void main(String[] args) {
@@ -28,7 +28,7 @@ public class PPA4C {
 	    }
 		
 		//Current task: prototype practice environment window
-		EditorWindow.main(null);
+		ExerciseWindow.main(null);
 	}
 
 }
