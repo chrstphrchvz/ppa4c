@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
-
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
@@ -27,6 +26,7 @@ import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
+import javax.swing.JEditorPane;
 
 public class EditorWindow extends JFrame implements ActionListener {
 
@@ -57,9 +57,7 @@ public class EditorWindow extends JFrame implements ActionListener {
 		jButton2 = new JButton();
 		formTopPanel = new JPanel();
 		pseudocodeScrollPane = new JScrollPane();
-		jTextArea1 = new JTextArea();
 		formLabel = new JLabel();
-		pseudocodeLabel = new JLabel();
 
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,37 +70,11 @@ public class EditorWindow extends JFrame implements ActionListener {
 		jLabel1 = new JLabel();
 
 		jLabel1.setText("Topic: Exercise 1");
-
-		GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
-		jPanel3Layout.setHorizontalGroup(jPanel3Layout.createParallelGroup(
-				Alignment.LEADING).addGroup(
-				jPanel3Layout.createSequentialGroup().addContainerGap()
-						.addComponent(jLabel1)
-						.addContainerGap(789, Short.MAX_VALUE)));
-		jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(
-				Alignment.LEADING).addGroup(
-				jPanel3Layout
-						.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(jLabel1)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE,
-								Short.MAX_VALUE)));
-		jPanel3.setLayout(jPanel3Layout);
 		getContentPane().add(jPanel3, BorderLayout.NORTH);
-
-		jTextArea1.setEditable(false);
-		jTextArea1.setBackground(UIManager.getDefaults().getColor(
-				"ToolTip.background"));
-		jTextArea1.setColumns(20);
-		jTextArea1.setRows(5);
-		jTextArea1.setText("start\n"
-				+ "    output to terminal \"Hello world!\"\n"
-				+ "    report success to operating system\n" + "finish");
-		pseudocodeScrollPane.setViewportView(jTextArea1);
-
+		jPanel3.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		jPanel3.add(jLabel1);
+		
 		formLabel.setText("Your work:");
-
-		pseudocodeLabel.setText("Pseudocode:");
 
 		formTopPanel.setLayout(new BorderLayout(0, 0));
 		formTopPanel.add(formLabel, BorderLayout.NORTH);
@@ -117,8 +89,20 @@ public class EditorWindow extends JFrame implements ActionListener {
 		jPanel4.setLayout(new BorderLayout(0, 0));
 		jPanel4.add(jButton2, BorderLayout.WEST);
 		jPanel4.add(jButton1, BorderLayout.EAST);
+		pseudocodeLabel = new JLabel();
+		
+				pseudocodeLabel.setText("Pseudocode:");
+				pseudocodeTopPanel.add(pseudocodeLabel, BorderLayout.NORTH);
 		pseudocodeTopPanel.add(pseudocodeScrollPane, BorderLayout.CENTER);
-		pseudocodeTopPanel.add(pseudocodeLabel, BorderLayout.NORTH);
+		
+		pseudocodeInsidePanel = new JPanel();
+		pseudocodeScrollPane.setViewportView(pseudocodeInsidePanel);
+		pseudocodeInsidePanel.setLayout(new BorderLayout(0, 0));
+		pseudocodeEditorPane = new JEditorPane();
+		pseudocodeInsidePanel.add(pseudocodeEditorPane);
+		pseudocodeEditorPane.setEditable(false);
+		pseudocodeEditorPane.setBackground(UIManager.getDefaults().getColor(
+				"ToolTip.background"));
 		splitPane.setRightComponent(formTopPanel);
 
 		formScrollPane = new JScrollPane();
@@ -194,9 +178,27 @@ public class EditorWindow extends JFrame implements ActionListener {
 
 		lineLabel5.setText("<html><code>}</code></html>");
 
+		/* Based on tutorial at 
+		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
+		 */
+		java.net.URL pseudocodeURL = EditorWindow.class.getResource(
+                "Pseudocode.txt");
+		if (pseudocodeURL != null) {
+		    try {
+		        pseudocodeEditorPane.setPage(pseudocodeURL);
+		    } catch (java.io.IOException e) {
+		        System.err.println("Attempted to read a bad URL: " + pseudocodeURL);
+		    }
+		} else {
+		    System.err.println("Couldn't find file: Pseudocode.txt");
+		}
+
+		
 		formStretchPanel.add(Box.createVerticalGlue(), BorderLayout.CENTER);
 
 		jButton1.addActionListener(this);
+		
+		
 		pack();
 	}
 
@@ -216,7 +218,7 @@ public class EditorWindow extends JFrame implements ActionListener {
 	private JPanel jPanel4;
 	private JPanel formTopPanel;
 	private JScrollPane pseudocodeScrollPane;
-	private JTextArea jTextArea1;
+	private JEditorPane pseudocodeEditorPane;
 	private JPanel linePanel1;
 	private JPanel linePanel3;
 	private JPanel linePanel4;
@@ -227,6 +229,7 @@ public class EditorWindow extends JFrame implements ActionListener {
 	private JSplitPane splitPane;
 	private JScrollPane formScrollPane;
 	private JPanel formStretchPanel;
+	private JPanel pseudocodeInsidePanel;
 
 	public void actionPerformed(ActionEvent e) {
 		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")

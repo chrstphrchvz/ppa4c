@@ -1,0 +1,4 @@
+start
+    output to terminal "Hello world!"
+    report success to operating system
+finish
