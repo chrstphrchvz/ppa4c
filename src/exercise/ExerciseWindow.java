@@ -10,9 +10,6 @@ import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,11 +20,11 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.JEditorPane;
-import java.awt.CardLayout;
+
+import javax.swing.JTabbedPane;
 
 public class ExerciseWindow extends JFrame implements ActionListener {
 
@@ -53,18 +50,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ExerciseWindow() {
-		jPanel4 = new JPanel();
-		jButton1 = new JButton();
-		jButton2 = new JButton();
-		formTopPanel = new JPanel();
-		pseudocodeScrollPane = new JScrollPane();
-		formLabel = new JLabel();
 
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-		jButton1.setText("Check work >>");
-
-		jButton2.setText("<< Description");
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
 		jPanel3 = new JPanel();
@@ -74,28 +61,48 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		getContentPane().add(jPanel3, BorderLayout.NORTH);
 		jPanel3.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		jPanel3.add(jLabel1);
-		
+
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		getContentPane().add(tabbedPane, BorderLayout.CENTER);
+
+		descriptionScrollPane = new JScrollPane();
+		tabbedPane.addTab("Description", null, descriptionScrollPane, null);
+
+			descriptionEditorPane = new JEditorPane();
+			descriptionEditorPane.setContentType("text/html");
+		descriptionScrollPane.setViewportView(descriptionEditorPane);
+
+		practicePanel = new JPanel();
+		tabbedPane.addTab("Practice", null, practicePanel, null);
+		practicePanel.setLayout(new BorderLayout(0, 0));
+		jPanel4 = new JPanel();
+		practicePanel.add(jPanel4, BorderLayout.SOUTH);
+		jButton1 = new JButton();
+
+		jButton1.setText("Check work >>");
+		jPanel4.setLayout(new BorderLayout(0, 0));
+		jPanel4.add(jButton1, BorderLayout.EAST);
+		formTopPanel = new JPanel();
+		pseudocodeScrollPane = new JScrollPane();
+		formLabel = new JLabel();
+
 		formLabel.setText("Your work:");
 
 		formTopPanel.setLayout(new BorderLayout(0, 0));
 		formTopPanel.add(formLabel, BorderLayout.NORTH);
 
 		splitPane = new JSplitPane();
-		getContentPane().add(splitPane, BorderLayout.CENTER);
+		practicePanel.add(splitPane);
 
 		JPanel pseudocodeTopPanel = new JPanel();
 		splitPane.setLeftComponent(pseudocodeTopPanel);
 		pseudocodeTopPanel.setLayout(new BorderLayout(0, 0));
-		getContentPane().add(jPanel4, BorderLayout.SOUTH);
-		jPanel4.setLayout(new BorderLayout(0, 0));
-		jPanel4.add(jButton2, BorderLayout.WEST);
-		jPanel4.add(jButton1, BorderLayout.EAST);
 		pseudocodeLabel = new JLabel();
-		
-				pseudocodeLabel.setText("Pseudocode:");
-				pseudocodeTopPanel.add(pseudocodeLabel, BorderLayout.NORTH);
+
+		pseudocodeLabel.setText("Pseudocode:");
+		pseudocodeTopPanel.add(pseudocodeLabel, BorderLayout.NORTH);
 		pseudocodeTopPanel.add(pseudocodeScrollPane, BorderLayout.CENTER);
-		
+
 		pseudocodeInsidePanel = new JPanel();
 		pseudocodeScrollPane.setViewportView(pseudocodeInsidePanel);
 		pseudocodeInsidePanel.setLayout(new BorderLayout(0, 0));
@@ -179,32 +186,44 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 
 		lineLabel5.setText("<html><code>}</code></html>");
 
-		/* Based on tutorial at 
-		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
-		 */
-		java.net.URL pseudocodeURL = ExerciseWindow.class.getResource(
-                "Pseudocode.txt");
-		if (pseudocodeURL != null) {
-		    try {
-		        pseudocodeEditorPane.setPage(pseudocodeURL);
-		    } catch (java.io.IOException e) {
-		        System.err.println("Attempted to read a bad URL: " + pseudocodeURL);
-		    }
-		} else {
-		    System.err.println("Couldn't find file: Pseudocode.txt");
-		}
-
-		
 		formStretchPanel.add(Box.createVerticalGlue(), BorderLayout.CENTER);
 
 		jButton1.addActionListener(this);
+
+		/*
+		 * Based on tutorial at
+		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
+		 */
+		java.net.URL descriptionURL = ExerciseWindow.class
+				.getResource("Description.html");
+		if (descriptionURL != null) {
+			try {
+				descriptionEditorPane.setPage(descriptionURL);
+			} catch (java.io.IOException e) {
+				System.err.println("Attempted to read a bad URL: "
+						+ descriptionURL);
+			}
+		} else {
+			System.err.println("Couldn't find file: Description.html");
+		}
 		
-		
+		java.net.URL pseudocodeURL = ExerciseWindow.class
+				.getResource("Pseudocode.txt");
+		if (pseudocodeURL != null) {
+			try {
+				pseudocodeEditorPane.setPage(pseudocodeURL);
+			} catch (java.io.IOException e) {
+				System.err.println("Attempted to read a bad URL: "
+						+ pseudocodeURL);
+			}
+		} else {
+			System.err.println("Couldn't find file: Pseudocode.txt");
+		}
+
 		pack();
 	}
 
 	private JButton jButton1;
-	private JButton jButton2;
 	private JComboBox<String> lineComboBox3_2;
 	private JLabel jLabel1;
 	private JLabel lineLabel2;
@@ -231,6 +250,10 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JScrollPane formScrollPane;
 	private JPanel formStretchPanel;
 	private JPanel pseudocodeInsidePanel;
+	private JTabbedPane tabbedPane;
+	private JPanel practicePanel;
+	private JScrollPane descriptionScrollPane;
+	private JEditorPane descriptionEditorPane;
 
 	public void actionPerformed(ActionEvent e) {
 		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
