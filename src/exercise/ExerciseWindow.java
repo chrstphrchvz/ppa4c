@@ -10,8 +10,16 @@ import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Scanner;
 
 import javax.swing.Box;
 import javax.swing.DefaultComboBoxModel;
@@ -23,7 +31,6 @@ import javax.swing.JSplitPane;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.JEditorPane;
-
 import javax.swing.JTabbedPane;
 
 public class ExerciseWindow extends JFrame implements ActionListener {
@@ -194,7 +201,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		 * Based on tutorial at
 		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
 		 */
-		java.net.URL descriptionURL = ExerciseWindow.class
+		URL descriptionURL = ExerciseWindow.class
 				.getResource("Description.html");
 		if (descriptionURL != null) {
 			try {
@@ -207,7 +214,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 			System.err.println("Couldn't find file: Description.html");
 		}
 		
-		java.net.URL pseudocodeURL = ExerciseWindow.class
+		URL pseudocodeURL = ExerciseWindow.class
 				.getResource("Pseudocode.txt");
 		if (pseudocodeURL != null) {
 			try {
@@ -256,14 +263,34 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JEditorPane descriptionEditorPane;
 
 	public void actionPerformed(ActionEvent e) {
+		
 		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
-			JOptionPane.showMessageDialog(null, "<html>" + "Great job!<br><br>"
-					+ "Program output:<br>" + "<code>Hello World!</code>"
-					+ "</html>", "Results", JOptionPane.INFORMATION_MESSAGE);
+			try {
+//				//debug
+//				Scanner x = new Scanner(new FileInputStream(new File("src/exercise/GoodFeedback.html")));
+//				x.useDelimiter("\\Z");
+//				System.out.print(x.next());
+//				x.close();
+
+				Scanner s = new Scanner(new FileInputStream(new File("src/exercise/GoodFeedback.html")));
+				s.useDelimiter("\\Z");
+				JOptionPane.showMessageDialog(null, s.next(), "Results", JOptionPane.INFORMATION_MESSAGE);
+				s.close();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		else
-			JOptionPane.showMessageDialog(null, "<html>" + "Try again!<br><br>"
-					+ "Hint: <code>printf()</code> sends text to the user,<br>"
-					+ "while <code>scanf()</code> gets text from the user."
-					+ "</html>", "Results", JOptionPane.ERROR_MESSAGE);
+			try {
+				Scanner s = new Scanner(new FileInputStream(new File("src/exercise/BadFeedback.html")));
+				s.useDelimiter("\\Z");
+				JOptionPane.showMessageDialog(null, s.next(), "Results", JOptionPane.INFORMATION_MESSAGE);
+				s.close();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 	}
 }
