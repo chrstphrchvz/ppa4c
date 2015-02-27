@@ -123,7 +123,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		//formStretchPanel.add(formContentPanel, BorderLayout.NORTH);
 exerciseExample = new ExerciseExample();
 formGeneratedContentPanel = new FormGeneratedContentPanel(exerciseExample.getLineArray());
-formStretchPanel.add(formGeneratedContentPanel);
+formStretchPanel.add(formGeneratedContentPanel, BorderLayout.NORTH);
 		formContentPanel.setBackground(java.awt.SystemColor.text);
 		formContentPanel.setLayout(new BoxLayout(formContentPanel,
 				BoxLayout.Y_AXIS));
