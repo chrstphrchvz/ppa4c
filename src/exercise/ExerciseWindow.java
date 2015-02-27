@@ -120,8 +120,10 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		formScrollPane.setViewportView(formStretchPanel);
 		formStretchPanel.setLayout(new BorderLayout(0, 0));
 		formContentPanel = new JPanel();
-		formStretchPanel.add(formContentPanel, BorderLayout.NORTH);
-
+		//formStretchPanel.add(formContentPanel, BorderLayout.NORTH);
+exerciseExample = new ExerciseExample();
+formGeneratedContentPanel = new FormGeneratedContentPanel(exerciseExample.getLineArray());
+formStretchPanel.add(formGeneratedContentPanel);
 		formContentPanel.setBackground(java.awt.SystemColor.text);
 		formContentPanel.setLayout(new BoxLayout(formContentPanel,
 				BoxLayout.Y_AXIS));
@@ -254,6 +256,9 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JPanel practicePanel;
 	private JScrollPane descriptionScrollPane;
 	private JEditorPane descriptionEditorPane;
+	
+	private ExerciseExample exerciseExample;
+	private FormGeneratedContentPanel formGeneratedContentPanel;
 
 	public void actionPerformed(ActionEvent e) {
 		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
