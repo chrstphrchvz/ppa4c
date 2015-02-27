@@ -20,27 +20,34 @@ public class FormGeneratedContentPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public FormGeneratedContentPanel(Object[][] lineArray) {
+		System.out.println("l23");
 		linePanelArray = new ArrayList<JPanel>();
 		questionComboBoxArray = new ArrayList<JComboBox<String>>();
 		answerArray = new ArrayList<String>();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		// parse lineArray
 		for (Object[] line : lineArray) {
+			System.out.println("l30");
 			// parse line
 			linePanelArray.add(new JPanel());
 			linePanelArray.get(linePanelArray.size() - 1).setLayout(
 					new FlowLayout(FlowLayout.CENTER, 5, 5));
 			for (Object segment : line) {
+				System.out.println("l36");
 				// generate label from strings
-				if (segment.getClass() == String.class.getClass()) {
+				if (segment instanceof String) {
+					System.out.println("l39");
 					linePanelArray.get(linePanelArray.size() - 1).add(
 							new JLabel((String) segment));
 				}
 				// generate combobox from Choice[] and record correct answer
-				else if (segment.getClass() == Choice[].class.getClass()) {
+				else if (segment instanceof Choice[]) {
+					System.out.println("l45");
 					// find and save EXACTLY 1 correct answer
 					for (Choice c : (Choice[]) segment) {
+						System.out.println("l48");
 						if (c.getChoiceIsCorrect()) {
+							System.out.println("l50");
 							answerArray.add(c.getChoiceString());
 						}
 					}
@@ -54,8 +61,10 @@ public class FormGeneratedContentPanel extends JPanel {
 				}
 			}
 		}
-		for (JPanel linePanel : linePanelArray)
+		for (JPanel linePanel : linePanelArray) {
+			System.out.println("l65");
 			add(linePanel);
+		}
 	}
 
 	private ArrayList<JPanel> linePanelArray;
