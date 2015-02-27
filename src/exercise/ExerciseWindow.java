@@ -12,9 +12,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -64,8 +62,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		descriptionScrollPane = new JScrollPane();
 		tabbedPane.addTab("Description", null, descriptionScrollPane, null);
 
-			descriptionEditorPane = new JEditorPane();
-			descriptionEditorPane.setContentType("text/html");
+		descriptionEditorPane = new JEditorPane();
+		descriptionEditorPane.setContentType("text/html");
 		descriptionScrollPane.setViewportView(descriptionEditorPane);
 
 		practicePanel = new JPanel();
@@ -116,18 +114,18 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		formScrollPane.setViewportView(formStretchPanel);
 		formStretchPanel.setLayout(new BorderLayout(0, 0));
 		new JPanel();
-		//formStretchPanel.add(formContentPanel, BorderLayout.NORTH);
-exerciseExample = new ExerciseExample();
-formGeneratedContentPanel = new FormGeneratedContentPanel(exerciseExample.getLineArray());
-formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
-
-
+		// formStretchPanel.add(formContentPanel, BorderLayout.NORTH);
+		exerciseExample = new ExerciseExample();
+		formGeneratedContentPanel = new FormGeneratedContentPanel(
+				exerciseExample.getLineArray());
+		formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
 
 		jButton1.addActionListener(this);
 
 		/*
 		 * Based on tutorial at
-		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
+		 * http://docs.oracle.com/javase/tutorial/uiswing/components
+		 * /editorpane.html#editorpane
 		 */
 		java.net.URL descriptionURL = ExerciseWindow.class
 				.getResource("Description.html");
@@ -141,7 +139,7 @@ formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
 		} else {
 			System.err.println("Couldn't find file: Description.html");
 		}
-		
+
 		java.net.URL pseudocodeURL = ExerciseWindow.class
 				.getResource("Pseudocode.txt");
 		if (pseudocodeURL != null) {
@@ -159,7 +157,6 @@ formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
 	}
 
 	private JButton jButton1;
-	private JComboBox<String> lineComboBox3_2;
 	private JLabel jLabel1;
 	private JLabel formLabel;
 	private JLabel pseudocodeLabel;
@@ -176,12 +173,12 @@ formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
 	private JPanel practicePanel;
 	private JScrollPane descriptionScrollPane;
 	private JEditorPane descriptionEditorPane;
-	
+
 	private ExerciseExample exerciseExample;
 	private FormGeneratedContentPanel formGeneratedContentPanel;
 
 	public void actionPerformed(ActionEvent e) {
-		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
+		if (formGeneratedContentPanel.getGrade())
 			JOptionPane.showMessageDialog(null, "<html>" + "Great job!<br><br>"
 					+ "Program output:<br>" + "<code>Hello World!</code>"
 					+ "</html>", "Results", JOptionPane.INFORMATION_MESSAGE);

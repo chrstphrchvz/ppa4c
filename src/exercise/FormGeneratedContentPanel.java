@@ -31,7 +31,7 @@ public class FormGeneratedContentPanel extends JPanel {
 			// parse line
 			linePanelArray.add(new JPanel());
 			linePanelArray.get(linePanelArray.size() - 1).setLayout(
-					new FlowLayout(FlowLayout.CENTER, 5, 5));
+					new FlowLayout(FlowLayout.LEFT, 5, 5));
 			for (Object segment : line) {
 				System.out.println("l36");
 				// generate label from strings
@@ -47,7 +47,7 @@ public class FormGeneratedContentPanel extends JPanel {
 					for (Choice c : (Choice[]) segment) {
 						System.out.println("l48");
 						if (c.getChoiceIsCorrect()) {
-							System.out.println("l50");
+							System.out.println("l50" + c.getChoiceString());
 							answerArray.add(c.getChoiceString());
 						}
 					}
@@ -70,11 +70,21 @@ public class FormGeneratedContentPanel extends JPanel {
 	private ArrayList<JPanel> linePanelArray;
 	private ArrayList<String> answerArray;
 	private ArrayList<JComboBox<String>> questionComboBoxArray;
-	/*
-	 * public boolean getGrade() { for (JComboBox<String> question :
-	 * questionComboBoxArray) if (question.getSelectedItem() == answerArray.)
-	 * return true;
-	 * 
-	 * }
-	 */
+
+	public boolean getGrade() {
+		boolean a = true;
+		for (int i = 0; i < questionComboBoxArray.size(); i++) {
+			System.out.println("l77" + " "
+					+ questionComboBoxArray.get(i).getSelectedItem() + " "
+					+ answerArray.get(i));
+			if (questionComboBoxArray.get(i).getSelectedItem()
+					.equals(answerArray.get(i)))
+				;
+			else {
+				a = false;
+				break;
+			}
+		}
+		return a;
+	}
 }
