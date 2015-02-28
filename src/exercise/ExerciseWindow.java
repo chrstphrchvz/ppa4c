@@ -16,8 +16,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -75,8 +73,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		descriptionScrollPane = new JScrollPane();
 		tabbedPane.addTab("Description", null, descriptionScrollPane, null);
 
-			descriptionEditorPane = new JEditorPane();
-			descriptionEditorPane.setContentType("text/html");
+		descriptionEditorPane = new JEditorPane();
+		descriptionEditorPane.setContentType("text/html");
 		descriptionScrollPane.setViewportView(descriptionEditorPane);
 
 		practicePanel = new JPanel();
@@ -199,7 +197,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 
 		/*
 		 * Based on tutorial at
-		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
+		 * http://docs.oracle.com/javase/tutorial/uiswing/components
+		 * /editorpane.html#editorpane
 		 */
 		URL descriptionURL = ExerciseWindow.class
 				.getResource("Description.html");
@@ -213,9 +212,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		} else {
 			System.err.println("Couldn't find file: Description.html");
 		}
-		
-		URL pseudocodeURL = ExerciseWindow.class
-				.getResource("Pseudocode.txt");
+
+		URL pseudocodeURL = ExerciseWindow.class.getResource("Pseudocode.txt");
 		if (pseudocodeURL != null) {
 			try {
 				pseudocodeEditorPane.setPage(pseudocodeURL);
@@ -263,34 +261,36 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JEditorPane descriptionEditorPane;
 
 	public void actionPerformed(ActionEvent e) {
-		
+
+		/*
+		 * HTML formatted output is contained in new JLabel as workaround of
+		 * https://bugs.openjdk.java.net/browse/JDK-8042134
+		 */
 		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
 			try {
-//				//debug
-//				Scanner x = new Scanner(new FileInputStream(new File("src/exercise/GoodFeedback.html")));
-//				x.useDelimiter("\\Z");
-//				System.out.print(x.next());
-//				x.close();
-
-				Scanner s = new Scanner(new FileInputStream(new File("src/exercise/GoodFeedback.html")));
+				Scanner s = new Scanner(new FileInputStream(new File(
+						"src/exercise/GoodFeedback.html")));
 				s.useDelimiter("\\Z");
-				JOptionPane.showMessageDialog(null, s.next(), "Results", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, new JLabel(s.next()),
+						"Results", JOptionPane.INFORMATION_MESSAGE);
 				s.close();
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
+
 		else
 			try {
-				Scanner s = new Scanner(new FileInputStream(new File("src/exercise/BadFeedback.html")));
+				Scanner s = new Scanner(new FileInputStream(new File(
+						"src/exercise/BadFeedback.html")));
 				s.useDelimiter("\\Z");
-				JOptionPane.showMessageDialog(null, s.next(), "Results", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, new JLabel(s.next()),
+						"Results", JOptionPane.INFORMATION_MESSAGE);
 				s.close();
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
+
 	}
 }
