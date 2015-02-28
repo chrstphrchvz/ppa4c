@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
+import javax.swing.BoxLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -17,7 +19,10 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Scanner;
 
+import javax.swing.Box;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -27,6 +32,8 @@ import javax.swing.JEditorPane;
 import javax.swing.JTabbedPane;
 
 public class ExerciseWindow extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -117,12 +124,74 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		formStretchPanel = new JPanel();
 		formScrollPane.setViewportView(formStretchPanel);
 		formStretchPanel.setLayout(new BorderLayout(0, 0));
-		new JPanel();
-		// formStretchPanel.add(formContentPanel, BorderLayout.NORTH);
-		exerciseExample = new ExerciseExample();
-		formGeneratedContentPanel = new FormGeneratedContentPanel(
-				exerciseExample.getLineArray());
-		formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
+		formContentPanel = new JPanel();
+		formStretchPanel.add(formContentPanel, BorderLayout.NORTH);
+
+		formContentPanel.setBackground(java.awt.SystemColor.text);
+		formContentPanel.setLayout(new BoxLayout(formContentPanel,
+				BoxLayout.Y_AXIS));
+
+		linePanel1 = new JPanel();
+		formContentPanel.add(linePanel1);
+		formContentPanel.add(Box.createVerticalStrut(0));
+		linePanel1.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		lineLabel1 = new JLabel();
+		linePanel1.add(lineLabel1);
+
+		lineLabel1
+				.setText("<html><code>#include &lt;stdio.h&gt;</code></html>");
+		linePanel2 = new JPanel();
+		formContentPanel.add(linePanel2);
+		formContentPanel.add(Box.createVerticalStrut(0));
+		linePanel2.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		lineLabel2 = new JLabel();
+		linePanel2.add(lineLabel2);
+
+		lineLabel2.setText("<html><code>int main(void){</code></html>");
+
+		linePanel3 = new JPanel();
+		formContentPanel.add(linePanel3);
+		formContentPanel.add(Box.createVerticalStrut(0));
+		linePanel3.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+
+		lineLabel3_1 = new JLabel();
+		lineLabel3_1.setText("<html><code>&#09;</code></html>");
+		linePanel3.add(lineLabel3_1);
+		lineComboBox3_2 = new JComboBox<String>();
+		linePanel3.add(lineComboBox3_2);
+
+		lineComboBox3_2.setModel(new DefaultComboBoxModel<String>(new String[] {
+				"<html><code>printf</code></html>",
+				"<html><code>scanf</code></html>" }));
+		lineComboBox3_2.setSelectedIndex(-1);
+		lineLabel3_3 = new JLabel();
+		linePanel3.add(lineLabel3_3);
+
+		lineLabel3_3.setText("<html><code>(\"Hello world!\");</code></html>");
+
+		linePanel4 = new JPanel();
+		formContentPanel.add(linePanel4);
+		formContentPanel.add(Box.createVerticalStrut(0));
+		linePanel4.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+
+		lineLabel4_1 = new JLabel();
+		linePanel4.add(lineLabel4_1);
+		lineLabel4_1.setText("<html><code>&#09;</code></html>");
+		lineLabel4_2 = new JLabel();
+		linePanel4.add(lineLabel4_2);
+
+		lineLabel4_2.setText("<html><code>return 0;</code></html>");
+
+		linePanel5 = new JPanel();
+		formContentPanel.add(linePanel5);
+		linePanel5.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+
+		lineLabel5 = new JLabel();
+		linePanel5.add(lineLabel5);
+
+		lineLabel5.setText("<html><code>}</code></html>");
+
+		formStretchPanel.add(Box.createVerticalGlue(), BorderLayout.CENTER);
 
 		jButton1.addActionListener(this);
 
@@ -145,7 +214,6 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		}
 
 		URL pseudocodeURL = ExerciseWindow.class.getResource("Pseudocode.txt");
-
 		if (pseudocodeURL != null) {
 			try {
 				pseudocodeEditorPane.setPage(pseudocodeURL);
@@ -161,14 +229,28 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	}
 
 	private JButton jButton1;
+	private JComboBox<String> lineComboBox3_2;
 	private JLabel jLabel1;
+	private JLabel lineLabel2;
+	private JLabel lineLabel3_3;
+	private JLabel lineLabel4_2;
+	private JLabel lineLabel5;
+	private JLabel lineLabel1;
 	private JLabel formLabel;
 	private JLabel pseudocodeLabel;
+	private JPanel formContentPanel;
 	private JPanel jPanel3;
 	private JPanel jPanel4;
 	private JPanel formTopPanel;
 	private JScrollPane pseudocodeScrollPane;
 	private JEditorPane pseudocodeEditorPane;
+	private JPanel linePanel1;
+	private JPanel linePanel3;
+	private JPanel linePanel4;
+	private JPanel linePanel5;
+	private JPanel linePanel2;
+	private JLabel lineLabel3_1;
+	private JLabel lineLabel4_1;
 	private JSplitPane splitPane;
 	private JScrollPane formScrollPane;
 	private JPanel formStretchPanel;
@@ -178,17 +260,13 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JScrollPane descriptionScrollPane;
 	private JEditorPane descriptionEditorPane;
 
-	private ExerciseExample exerciseExample;
-	private FormGeneratedContentPanel formGeneratedContentPanel;
-
 	public void actionPerformed(ActionEvent e) {
-
 
 		/*
 		 * HTML formatted output is contained in new JLabel as workaround of
 		 * https://bugs.openjdk.java.net/browse/JDK-8042134
 		 */
-if (formGeneratedContentPanel.getGrade())
+		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
 			try {
 				Scanner s = new Scanner(new FileInputStream(new File(
 						"src/exercise/GoodFeedback.html")));
