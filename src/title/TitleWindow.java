@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package title;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import topicBrowser.TopicWindow;
 
 /**
  *
@@ -31,6 +35,13 @@ public class TitleWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton1.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		 TitleWindow.this.setVisible(false);
+        		 new TopicWindow().setVisible(true);
+        	}
+        });
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -144,7 +155,7 @@ public class TitleWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TitleWindow().setVisible(true);
+              new TitleWindow().setVisible(true);
             }
         });
     }
