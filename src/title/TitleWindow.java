@@ -11,7 +11,7 @@ import topicBrowser.TopicWindow;
 
 /**
  *
- * @author chrischavez, Legio1221 (Oscar G)
+ * @author chrischavez, Legio1221 (Oscar)
  */
 public class TitleWindow extends javax.swing.JFrame {
 
