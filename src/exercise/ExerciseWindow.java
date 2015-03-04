@@ -10,8 +10,14 @@ import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.Scanner;
 
 import javax.swing.Box;
 import javax.swing.DefaultComboBoxModel;
@@ -23,7 +29,6 @@ import javax.swing.JSplitPane;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.JEditorPane;
-
 import javax.swing.JTabbedPane;
 
 public class ExerciseWindow extends JFrame implements ActionListener {
@@ -68,8 +73,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		descriptionScrollPane = new JScrollPane();
 		tabbedPane.addTab("Description", null, descriptionScrollPane, null);
 
-			descriptionEditorPane = new JEditorPane();
-			descriptionEditorPane.setContentType("text/html");
+		descriptionEditorPane = new JEditorPane();
+		descriptionEditorPane.setContentType("text/html");
 		descriptionScrollPane.setViewportView(descriptionEditorPane);
 
 		practicePanel = new JPanel();
@@ -192,9 +197,10 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 
 		/*
 		 * Based on tutorial at
-		 * http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html#editorpane
+		 * http://docs.oracle.com/javase/tutorial/uiswing/components
+		 * /editorpane.html#editorpane
 		 */
-		java.net.URL descriptionURL = ExerciseWindow.class
+		URL descriptionURL = ExerciseWindow.class
 				.getResource("Description.html");
 		if (descriptionURL != null) {
 			try {
@@ -206,9 +212,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		} else {
 			System.err.println("Couldn't find file: Description.html");
 		}
-		
-		java.net.URL pseudocodeURL = ExerciseWindow.class
-				.getResource("Pseudocode.txt");
+
+		URL pseudocodeURL = ExerciseWindow.class.getResource("Pseudocode.txt");
 		if (pseudocodeURL != null) {
 			try {
 				pseudocodeEditorPane.setPage(pseudocodeURL);
@@ -256,14 +261,36 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JEditorPane descriptionEditorPane;
 
 	public void actionPerformed(ActionEvent e) {
+
+		/*
+		 * HTML formatted output is contained in new JLabel as workaround of
+		 * https://bugs.openjdk.java.net/browse/JDK-8042134
+		 */
 		if (lineComboBox3_2.getSelectedItem() == "<html><code>printf</code></html>")
-			JOptionPane.showMessageDialog(null, "<html>" + "Great job!<br><br>"
-					+ "Program output:<br>" + "<code>Hello World!</code>"
-					+ "</html>", "Results", JOptionPane.INFORMATION_MESSAGE);
+			try {
+				Scanner s = new Scanner(new FileInputStream(new File(
+						"src/exercise/GoodFeedback.html")));
+				s.useDelimiter("\\Z");
+				JOptionPane.showMessageDialog(null, new JLabel(s.next()),
+						"Results", JOptionPane.INFORMATION_MESSAGE);
+				s.close();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
 		else
-			JOptionPane.showMessageDialog(null, "<html>" + "Try again!<br><br>"
-					+ "Hint: <code>printf()</code> sends text to the user,<br>"
-					+ "while <code>scanf()</code> gets text from the user."
-					+ "</html>", "Results", JOptionPane.ERROR_MESSAGE);
+			try {
+				Scanner s = new Scanner(new FileInputStream(new File(
+						"src/exercise/BadFeedback.html")));
+				s.useDelimiter("\\Z");
+				JOptionPane.showMessageDialog(null, new JLabel(s.next()),
+						"Results", JOptionPane.INFORMATION_MESSAGE);
+				s.close();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
 	}
 }
