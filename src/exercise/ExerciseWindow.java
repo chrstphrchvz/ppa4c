@@ -285,7 +285,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 						"src/exercise/BadFeedback.html")));
 				s.useDelimiter("\\Z");
 				JOptionPane.showMessageDialog(null, new JLabel(s.next()),
-						"Results", JOptionPane.INFORMATION_MESSAGE);
+						"Results", JOptionPane.ERROR_MESSAGE);
 				s.close();
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
