@@ -177,34 +177,34 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private FormGeneratedContentPanel formGeneratedContentPanel;
 
 	public void actionPerformed(ActionEvent e) {
-		/*
-		 * HTML formatted output is contained in new JLabel as workaround of
-		 * https://bugs.openjdk.java.net/browse/JDK-8042134
-		 */
-		if (formGeneratedContentPanel.getGrade())
-			try {
-				Scanner s = new Scanner(new FileInputStream(new File(
-						"src/exercise/GoodFeedback.html")));
-				s.useDelimiter("\\Z");
-				JOptionPane.showMessageDialog(null, new JLabel(s.next()),
-						"Results", JOptionPane.INFORMATION_MESSAGE);
-				s.close();
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 
-		else
-			try {
-				Scanner s = new Scanner(new FileInputStream(new File(
-						"src/exercise/BadFeedback.html")));
-				s.useDelimiter("\\Z");
-				JOptionPane.showMessageDialog(null, new JLabel(s.next()),
-						"Results", JOptionPane.ERROR_MESSAGE);
-				s.close();
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+		Scanner s;
+		String pathname;
+		int messageType;
+
+		if (formGeneratedContentPanel.getGrade()) {
+			pathname = "src/exercise/GoodFeedback.html";
+			messageType = JOptionPane.INFORMATION_MESSAGE;
+		} else {
+			pathname = "src/exercise/BadFeedback.html";
+			messageType = JOptionPane.ERROR_MESSAGE;
+		}
+
+		try {
+			s = new Scanner(new FileInputStream(new File(pathname)));
+			s.useDelimiter("\\Z");
+
+			/*
+			 * HTML formatted output is contained in new JLabel as workaround of
+			 * https://bugs.openjdk.java.net/browse/JDK-8042134
+			 */
+			JOptionPane.showMessageDialog(null, new JLabel(s.next()),
+					"Results", messageType);
+			s.close();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 	}
 }
