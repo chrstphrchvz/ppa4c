@@ -24,7 +24,7 @@ public class ExerciseExample extends ExerciseTemplate {
 						"<html><code>return 0;</code></html>" },
 				{ "<html><code>}</code></html>" } });
 
-		setTopic("Topic: Exercise 1");
+		setTopic("Exercise 1");
 		setDescriptionPath("Description.html");
 		setPseudocodePath("Pseudocode.txt");
 		setGoodFeedbackPath("src/exercise/GoodFeedback.html");

@@ -49,16 +49,16 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
-		//exerciseTemplate refers to the specific exercise being used
-		//(convert to constructor argument?)
+		// exerciseTemplate refers to the specific exercise being used
+		// (convert to constructor argument?)
 		exerciseTemplate = new ExerciseExample();
-		jPanel3 = new JPanel();
-		jLabel1 = new JLabel();
+		topicPanel = new JPanel();
+		topicLabel = new JLabel();
 
-		jLabel1.setText(exerciseTemplate.getTopic());
-		getContentPane().add(jPanel3, BorderLayout.NORTH);
-		jPanel3.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
-		jPanel3.add(jLabel1);
+		topicLabel.setText("Topic: " + exerciseTemplate.getTopic());
+		getContentPane().add(topicPanel, BorderLayout.NORTH);
+		topicPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		topicPanel.add(topicLabel);
 
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		getContentPane().add(tabbedPane, BorderLayout.CENTER);
@@ -73,13 +73,13 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		practicePanel = new JPanel();
 		tabbedPane.addTab("Practice", null, practicePanel, null);
 		practicePanel.setLayout(new BorderLayout(0, 0));
-		jPanel4 = new JPanel();
-		practicePanel.add(jPanel4, BorderLayout.SOUTH);
-		jButton1 = new JButton();
+		buttonPanel = new JPanel();
+		practicePanel.add(buttonPanel, BorderLayout.SOUTH);
+		checkWorkButton = new JButton();
 
-		jButton1.setText("Check work >>");
-		jPanel4.setLayout(new BorderLayout(0, 0));
-		jPanel4.add(jButton1, BorderLayout.EAST);
+		checkWorkButton.setText("Check work >>");
+		buttonPanel.setLayout(new BorderLayout(0, 0));
+		buttonPanel.add(checkWorkButton, BorderLayout.EAST);
 		formTopPanel = new JPanel();
 		pseudocodeScrollPane = new JScrollPane();
 		formLabel = new JLabel();
@@ -92,7 +92,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		splitPane = new JSplitPane();
 		practicePanel.add(splitPane);
 
-		JPanel pseudocodeTopPanel = new JPanel();
+		pseudocodeTopPanel = new JPanel();
 		splitPane.setLeftComponent(pseudocodeTopPanel);
 		pseudocodeTopPanel.setLayout(new BorderLayout(0, 0));
 		pseudocodeLabel = new JLabel();
@@ -107,6 +107,12 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		pseudocodeEditorPane = new JEditorPane();
 		pseudocodeInsidePanel.add(pseudocodeEditorPane, BorderLayout.CENTER);
 		pseudocodeEditorPane.setEditable(false);
+
+		/*
+		 * Due to https://bugs.openjdk.java.net/browse/JDK-6789980, the
+		 * background color of the pseudocode (from .txt) area cannot be changed
+		 * when using Nimbus L&F.
+		 */
 		pseudocodeEditorPane.setBackground(UIManager.getDefaults().getColor(
 				"ToolTip.background"));
 		splitPane.setRightComponent(formTopPanel);
@@ -117,20 +123,19 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		formStretchPanel = new JPanel();
 		formScrollPane.setViewportView(formStretchPanel);
 		formStretchPanel.setLayout(new BorderLayout(0, 0));
-		new JPanel();
 		formGeneratedContentPanel = new FormGeneratedContentPanel(
 				exerciseTemplate.getLineArray());
 		formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
 
-		jButton1.addActionListener(this);
+		checkWorkButton.addActionListener(this);
 
 		/*
 		 * Based on tutorial at
 		 * http://docs.oracle.com/javase/tutorial/uiswing/components
 		 * /editorpane.html#editorpane
 		 */
-		URL descriptionURL = ExerciseWindow.class
-				.getResource(exerciseTemplate.getDescriptionPath());
+		URL descriptionURL = ExerciseWindow.class.getResource(exerciseTemplate
+				.getDescriptionPath());
 		if (descriptionURL != null) {
 			try {
 				descriptionEditorPane.setPage(descriptionURL);
@@ -139,10 +144,12 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 						+ exerciseTemplate.getDescriptionPath());
 			}
 		} else {
-			System.err.println("Couldn't find file: " + exerciseTemplate.getDescriptionPath());
+			System.err.println("Couldn't find file: "
+					+ exerciseTemplate.getDescriptionPath());
 		}
 
-		URL pseudocodeURL = ExerciseWindow.class.getResource(exerciseTemplate.getPseudocodePath());
+		URL pseudocodeURL = ExerciseWindow.class.getResource(exerciseTemplate
+				.getPseudocodePath());
 		if (pseudocodeURL != null) {
 			try {
 				pseudocodeEditorPane.setPage(pseudocodeURL);
@@ -151,18 +158,19 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 						+ exerciseTemplate.getPseudocodePath());
 			}
 		} else {
-			System.err.println("Couldn't find file: " + exerciseTemplate.getPseudocodePath());
+			System.err.println("Couldn't find file: "
+					+ exerciseTemplate.getPseudocodePath());
 		}
 
 		pack();
 	}
 
-	private JButton jButton1;
-	private JLabel jLabel1;
+	private JButton checkWorkButton;
+	private JLabel topicLabel;
 	private JLabel formLabel;
 	private JLabel pseudocodeLabel;
-	private JPanel jPanel3;
-	private JPanel jPanel4;
+	private JPanel topicPanel;
+	private JPanel buttonPanel;
 	private JPanel formTopPanel;
 	private JScrollPane pseudocodeScrollPane;
 	private JEditorPane pseudocodeEditorPane;
@@ -174,6 +182,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JPanel practicePanel;
 	private JScrollPane descriptionScrollPane;
 	private JEditorPane descriptionEditorPane;
+	private JPanel pseudocodeTopPanel;
 
 	private ExerciseTemplate exerciseTemplate;
 	private FormGeneratedContentPanel formGeneratedContentPanel;
