@@ -47,4 +47,46 @@ public class ExerciseTemplate {
 	public void setLineArray(Object[][] lineArray) {
 		this.lineArray = lineArray;
 	}
+	
+	private String topic, descriptionPath, pseudocodePath, goodFeedbackPath, badFeedbackPath;
+
+	public String getTopic() {
+		return topic;
+	}
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	public String getDescriptionPath() {
+		return descriptionPath;
+	}
+
+	public void setDescriptionPath(String descriptionPath) {
+		this.descriptionPath = descriptionPath;
+	}
+
+	public String getPseudocodePath() {
+		return pseudocodePath;
+	}
+
+	public void setPseudocodePath(String pseudocodePath) {
+		this.pseudocodePath = pseudocodePath;
+	}
+
+	public String getGoodFeedbackPath() {
+		return goodFeedbackPath;
+	}
+
+	public void setGoodFeedbackPath(String goodFeedbackPath) {
+		this.goodFeedbackPath = goodFeedbackPath;
+	}
+
+	public String getBadFeedbackPath() {
+		return badFeedbackPath;
+	}
+
+	public void setBadFeedbackPath(String badFeedbackPath) {
+		this.badFeedbackPath = badFeedbackPath;
+	}
 }

@@ -49,10 +49,13 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
+		//exerciseTemplate refers to the specific exercise being used
+		//(convert to constructor argument?)
+		exerciseTemplate = new ExerciseExample();
 		jPanel3 = new JPanel();
 		jLabel1 = new JLabel();
 
-		jLabel1.setText("Topic: Exercise 1");
+		jLabel1.setText(exerciseTemplate.getTopic());
 		getContentPane().add(jPanel3, BorderLayout.NORTH);
 		jPanel3.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		jPanel3.add(jLabel1);
@@ -115,9 +118,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		formScrollPane.setViewportView(formStretchPanel);
 		formStretchPanel.setLayout(new BorderLayout(0, 0));
 		new JPanel();
-		exerciseExample = new ExerciseExample();
 		formGeneratedContentPanel = new FormGeneratedContentPanel(
-				exerciseExample.getLineArray());
+				exerciseTemplate.getLineArray());
 		formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
 
 		jButton1.addActionListener(this);
@@ -128,28 +130,28 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		 * /editorpane.html#editorpane
 		 */
 		URL descriptionURL = ExerciseWindow.class
-				.getResource("Description.html");
+				.getResource(exerciseTemplate.getDescriptionPath());
 		if (descriptionURL != null) {
 			try {
 				descriptionEditorPane.setPage(descriptionURL);
 			} catch (java.io.IOException e) {
 				System.err.println("Attempted to read a bad URL: "
-						+ descriptionURL);
+						+ exerciseTemplate.getDescriptionPath());
 			}
 		} else {
-			System.err.println("Couldn't find file: Description.html");
+			System.err.println("Couldn't find file: " + exerciseTemplate.getDescriptionPath());
 		}
 
-		URL pseudocodeURL = ExerciseWindow.class.getResource("Pseudocode.txt");
+		URL pseudocodeURL = ExerciseWindow.class.getResource(exerciseTemplate.getPseudocodePath());
 		if (pseudocodeURL != null) {
 			try {
 				pseudocodeEditorPane.setPage(pseudocodeURL);
 			} catch (java.io.IOException e) {
 				System.err.println("Attempted to read a bad URL: "
-						+ pseudocodeURL);
+						+ exerciseTemplate.getPseudocodePath());
 			}
 		} else {
-			System.err.println("Couldn't find file: Pseudocode.txt");
+			System.err.println("Couldn't find file: " + exerciseTemplate.getPseudocodePath());
 		}
 
 		pack();
@@ -173,7 +175,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	private JScrollPane descriptionScrollPane;
 	private JEditorPane descriptionEditorPane;
 
-	private ExerciseExample exerciseExample;
+	private ExerciseTemplate exerciseTemplate;
 	private FormGeneratedContentPanel formGeneratedContentPanel;
 
 	public void actionPerformed(ActionEvent e) {
@@ -183,10 +185,10 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		int messageType;
 
 		if (formGeneratedContentPanel.getGrade()) {
-			pathname = "src/exercise/GoodFeedback.html";
+			pathname = exerciseTemplate.getGoodFeedbackPath();
 			messageType = JOptionPane.INFORMATION_MESSAGE;
 		} else {
-			pathname = "src/exercise/BadFeedback.html";
+			pathname = exerciseTemplate.getBadFeedbackPath();
 			messageType = JOptionPane.ERROR_MESSAGE;
 		}
 
