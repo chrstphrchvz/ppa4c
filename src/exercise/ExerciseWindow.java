@@ -2,7 +2,6 @@ package exercise;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -52,14 +51,9 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		// exerciseTemplate refers to the specific exercise being used
 		// (convert to constructor argument?)
 		exerciseTemplate = new ExerciseExample();
-		topicPanel = new JPanel();
-		topicLabel = new JLabel();
-
-		topicLabel.setText("Topic: " + exerciseTemplate.getTopic());
-		getContentPane().add(topicPanel, BorderLayout.NORTH);
-		topicPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
-		topicPanel.add(topicLabel);
-
+		
+		setTitle("Topic: " + exerciseTemplate.getTopic());
+		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		getContentPane().add(tabbedPane, BorderLayout.CENTER);
 
@@ -166,10 +160,8 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 	}
 
 	private JButton checkWorkButton;
-	private JLabel topicLabel;
 	private JLabel formLabel;
 	private JLabel pseudocodeLabel;
-	private JPanel topicPanel;
 	private JPanel buttonPanel;
 	private JPanel formTopPanel;
 	private JScrollPane pseudocodeScrollPane;
