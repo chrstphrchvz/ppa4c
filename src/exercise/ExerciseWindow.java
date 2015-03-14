@@ -125,7 +125,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		formStretchPanel.setLayout(new BorderLayout(0, 0));
 		formGeneratedContentPanel = new FormGeneratedContentPanel(
 				exerciseTemplate.getLineArray());
-		formStretchPanel.add(formGeneratedContentPanel, BorderLayout.CENTER);
+		formStretchPanel.add(formGeneratedContentPanel, BorderLayout.NORTH);
 
 		checkWorkButton.addActionListener(this);
 
