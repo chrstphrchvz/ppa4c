@@ -23,15 +23,15 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
 public class ExerciseWindow extends JFrame implements ActionListener {
-
+/*	Should not need this
 	/**
 	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	 
+	public static void main(ExerciseTemplate exerciseTemplate) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ExerciseWindow frame = new ExerciseWindow();
+					ExerciseWindow frame = new ExerciseWindow(exerciseTemplate);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,18 +39,19 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the frame.
+	 * @param exerciseTemplate 
 	 */
-	public ExerciseWindow() {
+	public ExerciseWindow(ExerciseTemplate exerciseTemplate) {
 
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
 		// exerciseTemplate refers to the specific exercise being used
 		// (convert to constructor argument?)
-		exerciseTemplate = new ExerciseExample();
+		setExerciseTemplate(exerciseTemplate);
 		
 		setTitle("Topic: " + exerciseTemplate.getTopic());
 		
@@ -157,6 +158,10 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 		}
 
 		pack();
+	}
+
+	public void setExerciseTemplate(ExerciseTemplate exerciseTemplate) {
+		this.exerciseTemplate = exerciseTemplate;
 	}
 
 	private JButton checkWorkButton;
