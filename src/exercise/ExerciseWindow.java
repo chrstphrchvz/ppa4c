@@ -24,10 +24,10 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
 public class ExerciseWindow extends JFrame implements ActionListener {
-
+/*	Should not need this
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(ExerciseTemplate exerciseTemplate) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,7 +40,7 @@ public class ExerciseWindow extends JFrame implements ActionListener {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the frame.
 	 * @param exerciseTemplate 
