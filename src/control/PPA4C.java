@@ -50,25 +50,7 @@ public class PPA4C {
 		// ExerciseWindow.main(new ExerciseExample());
 
 		// Create exercise window using exercise name
-/*		Class exerciseName;
-		try {
-			exerciseName = Class.forName(exercise.ExerciseExample.class
-					.getName());// Moved from main() (created by WindowBuilder)
-			EventQueue.invokeLater(new Runnable() {
-				public void run() {
-					try {
-						ExerciseWindow frame = new ExerciseWindow(
-								(ExerciseTemplate) exerciseName.newInstance());
-						frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			});
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+/*		
 */
 
 		TitleWindow.main(null);
