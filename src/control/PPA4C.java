@@ -4,6 +4,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.*;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import title.TitleWindow;
 import exercise.ExerciseWindow;
 
 public class PPA4C {
@@ -41,7 +42,7 @@ public class PPA4C {
 		// feel.
 
 		// Current task: prototype practice environment window
-		ExerciseWindow.main(null);
+		TitleWindow.main(null);
 	}
 
 }

@@ -4,20 +4,50 @@
  * and open the template in the editor.
  */
 package topicBrowser;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
  * @author chrischavez
  */
-public class topicBrowserWindow extends javax.swing.JFrame {
+public class TopicBrowserWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form topicBrowserWindow
      */
-    public topicBrowserWindow() {
+    public TopicBrowserWindow() {
         initComponents();
     }
-
+    
+    public class Topic{
+    	public Topic(String topicString, Class topicClass ){
+    		setTopicString(topicString);
+    		setTopicClass(topicClass);
+    	}
+    	
+    	String topicString;
+    	Class topicClass;
+		public void setTopicString(String topicString) {
+			this.topicString = topicString;
+		}
+		public void setTopicClass(Class topicClass) {
+			this.topicClass = topicClass;
+		}
+		public Class getTopicClass() {
+			return topicClass;
+		}
+		@Override
+		public String toString() {
+			return getTopicString();
+		}
+		public String getTopicString() {
+			return topicString;
+		}
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +62,7 @@ public class topicBrowserWindow extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
+        
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -58,37 +89,60 @@ public class topicBrowserWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Topics");
-
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("C");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Control statements");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("if");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("if-else");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("User I/O");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("printf()");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("scanf()");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("football");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("hockey");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("food");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("hot dogs");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("pizza");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ravioli");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("bananas");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane2.setViewportView(jTree1);
-
+        
+        //construct tree
+        try {
+			jTree1.setModel(new DefaultTreeModel(
+				new DefaultMutableTreeNode("C") {
+					{
+						DefaultMutableTreeNode node_1;
+						node_1 = new DefaultMutableTreeNode("Input/Output");
+							node_1.add(new DefaultMutableTreeNode(new Topic("Output: printf()", Class.forName(exercise.ExerciseExample.class.getName()))));
+							node_1.add(new DefaultMutableTreeNode("Input:     scanf()"));
+						add(node_1);
+						node_1 = new DefaultMutableTreeNode("Conditional Constructs");
+							node_1.add(new DefaultMutableTreeNode("if"));
+							node_1.add(new DefaultMutableTreeNode("if/elseif/else"));
+							node_1.add(new DefaultMutableTreeNode("switch"));
+						add(node_1);
+						node_1 = new DefaultMutableTreeNode("Loops\t");
+							node_1.add(new DefaultMutableTreeNode("while"));
+							node_1.add(new DefaultMutableTreeNode("for"));
+						add(node_1);
+						add(new DefaultMutableTreeNode("Pointers"));
+						add(new DefaultMutableTreeNode("Arrays"));
+						add(new DefaultMutableTreeNode("Strings"));
+						node_1 = new DefaultMutableTreeNode("Sorting");
+							node_1.add(new DefaultMutableTreeNode("Search"));
+							node_1.add(new DefaultMutableTreeNode("Bubble"));
+							node_1.add(new DefaultMutableTreeNode("Insertion"));
+						add(node_1);
+						node_1 = new DefaultMutableTreeNode("File I/O");
+							node_1.add(new DefaultMutableTreeNode("input"));
+							node_1.add(new DefaultMutableTreeNode("output"));
+						add(node_1);
+					}
+				}
+			));
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        jScrollPane2.setColumnHeaderView(jTree1);
+        
+        //set Single Selection only
+        jTree1.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        
+        //add TreeSelectionListener
+        jTree1.addTreeSelectionListener(new TreeSelectionListener(){
+        	public void valueChanged(TreeSelectionEvent e){
+        		DefaultMutableTreeNode node = (DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+        		if (node == null) return; /*Do Nothing*/
+        		else System.out.println(node);
+        	}
+        });
+        
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,20 +184,20 @@ public class topicBrowserWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(topicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(topicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(topicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(topicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TopicBrowserWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new topicBrowserWindow().setVisible(true);
+                new TopicBrowserWindow().setVisible(true);
             }
         });
     }

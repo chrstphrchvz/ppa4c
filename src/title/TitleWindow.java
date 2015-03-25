@@ -7,7 +7,7 @@ package title;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import topicBrowser.TopicWindow;
+import topicBrowser.TopicBrowserWindow;
 
 /**
  *
@@ -39,7 +39,7 @@ public class TitleWindow extends javax.swing.JFrame {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		 TitleWindow.this.setVisible(false);
-        		 new TopicWindow().setVisible(true);
+        		 new TopicBrowserWindow().setVisible(true);
         	}
         });
         jLabel1 = new javax.swing.JLabel();
