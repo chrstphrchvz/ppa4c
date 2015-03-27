@@ -6,10 +6,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.*;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import exercise.ExerciseExample;
-import exercise.ExerciseTemplate;
-import title.TitleWindow;
-import exercise.ExerciseWindow;
+import mainWindow.MainWindow;
 
 public class PPA4C {
 
@@ -20,6 +17,8 @@ public class PPA4C {
 		 * /plaf.html#programmatic and
 		 * http://docs.oracle.com/javase/tutorial/uiswing
 		 * /lookandfeel/nimbus.html
+		 * 
+		 * This should be the only place to set L&F!
 		 */
 		try {
 			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -44,16 +43,15 @@ public class PPA4C {
 
 		// If Nimbus is not available, you can set the GUI to another look and
 		// feel.
-
-		// Current task: prototype practice environment window
-
-		// ExerciseWindow.main(new ExerciseExample());
-
-		// Create exercise window using exercise name
-/*		
-*/
-
-		TitleWindow.main(null);
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainWindow frame = new MainWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-
 }
