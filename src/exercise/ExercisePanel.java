@@ -25,15 +25,15 @@ public class ExercisePanel extends JPanel implements ActionListener {
 	 * Create the panel.
 	 */
 	public ExercisePanel(ExerciseTemplate exerciseTemplate) {
-		
-		//setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		//getContentPane().setLayout(new BorderLayout(0, 0));
+
+		// setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		// getContentPane().setLayout(new BorderLayout(0, 0));
 
 		// exerciseTemplate refers to the specific exercise being used
 		// (convert to constructor argument?)
 		setExerciseTemplate(exerciseTemplate);
 
-		//setTitle("Topic: " + exerciseTemplate.getTopic());
+		// setTitle("Topic: " + exerciseTemplate.getTopic());
 
 		/*
 		 * Due to https://bugs.openjdk.java.net/browse/JDK-6789980, the
@@ -41,11 +41,11 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		 * when using Nimbus L&F.
 		 */
 
-		//getContentPane().add(exercisePanel, BorderLayout.CENTER);
-setLayout(new BorderLayout(0, 0));
+		// getContentPane().add(exercisePanel, BorderLayout.CENTER);
+		setLayout(new BorderLayout(0, 0));
 
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-add(tabbedPane);
+		add(tabbedPane);
 
 		descriptionScrollPane = new JScrollPane();
 		tabbedPane.addTab("Description", null, descriptionScrollPane, null);
@@ -140,7 +140,6 @@ add(tabbedPane);
 					+ exerciseTemplate.getPseudocodePath());
 		}
 
-		//pack();
 	}
 
 	public void setExerciseTemplate(ExerciseTemplate exerciseTemplate) {
@@ -166,7 +165,6 @@ add(tabbedPane);
 
 	private ExerciseTemplate exerciseTemplate;
 	private FormGeneratedContentPanel formGeneratedContentPanel;
-
 
 	public void actionPerformed(ActionEvent e) {
 

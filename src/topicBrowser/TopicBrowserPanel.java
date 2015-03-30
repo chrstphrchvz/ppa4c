@@ -1,18 +1,14 @@
 package topicBrowser;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JPanel;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
-
 import mainWindow.MainWindow;
 import exercise.ExerciseTemplate;
-import exercise.ExerciseWindow;
 
 public class TopicBrowserPanel extends JPanel {
 
@@ -125,6 +121,8 @@ public class TopicBrowserPanel extends JPanel {
 										((Topic) node.getUserObject())
 												.getTopicClassString())
 								.newInstance());
+						mainWindow.setTitle("PPA4C - " + ((Topic) node.getUserObject())
+								.getTopicNodeString());
 					} catch (ClassNotFoundException e1) {
 						e1.printStackTrace();
 					} catch (Exception e1) {
