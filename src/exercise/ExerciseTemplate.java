@@ -14,7 +14,7 @@ public class ExerciseTemplate {
 	// local class
 	public class Choice {
 		private String choiceString;
-		private Boolean choiceIsCorrect;
+		private boolean choiceIsCorrect;
 
 		public String getChoiceString() {
 			return choiceString;
@@ -24,15 +24,15 @@ public class ExerciseTemplate {
 			this.choiceString = choiceString;
 		}
 
-		public Boolean getChoiceIsCorrect() {
+		public boolean getChoiceIsCorrect() {
 			return choiceIsCorrect;
 		}
 
-		public void setChoiceIsCorrect(Boolean choiceIsCorrect) {
+		public void setChoiceIsCorrect(boolean choiceIsCorrect) {
 			this.choiceIsCorrect = choiceIsCorrect;
 		}
 
-		public Choice(String choiceString, Boolean choiceIsCorrect) {
+		public Choice(String choiceString, boolean choiceIsCorrect) {
 			this.choiceString = choiceString;
 			this.choiceIsCorrect = choiceIsCorrect;
 		}
@@ -47,16 +47,9 @@ public class ExerciseTemplate {
 	public void setLineArray(Object[][] lineArray) {
 		this.lineArray = lineArray;
 	}
-	
-	private String topic, descriptionPath, pseudocodePath, goodFeedbackPath, badFeedbackPath;
 
-	public String getTopic() {
-		return topic;
-	}
-
-	public void setTopic(String topic) {
-		this.topic = topic;
-	}
+	private String descriptionPath, pseudocodePath, goodFeedbackPath,
+			badFeedbackPath;
 
 	public String getDescriptionPath() {
 		return descriptionPath;
