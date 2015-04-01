@@ -32,9 +32,9 @@ public class ExercisePointers extends ExerciseTemplate {
 						"<html><code>return 0;</code></html>" },
 				{ "<html><code>}</code></html>" } });
 
-		setDescriptionPath("PointersDescription.html");
-		setPseudocodePath("PointersPseudocode.txt");
-		setGoodFeedbackPath("src/exercise/GoodFeedback.html");
-		setBadFeedbackPath("src/exercise/BadFeedback.html");
+		setDescriptionPath("resources/Pointers/Description.html");
+		setPseudocodePath("resources/Pointers/Pseudocode.txt");
+		setGoodFeedbackPath("resources/Pointers/GoodFeedback.html");
+		setBadFeedbackPath("resources/Pointers/BadFeedback.html");
 	}
 }
