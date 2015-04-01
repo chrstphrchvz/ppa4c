@@ -8,7 +8,7 @@ public class ExercisePointers extends ExerciseTemplate {
 
 				{ "<html><code>#include &lt;stdio.h&gt;</code></html>" },
 				{ "<html><code>int main(void) {</code></html>" },
-				{ "<html><code>&#09;int num;</code></html>" },
+				{ "<html><code>&#09;</code></html>","<html><code>int num;</code></html>" },
 				{
 						"<html><code>&#09;int</code></html>",
 						new Choice[] {
@@ -24,7 +24,7 @@ public class ExercisePointers extends ExerciseTemplate {
 										true) },
 						"<html><code>num;</code></html>" },
 				{
-						"<html><code>printf(\" Value in num: %d \n\", </code></html>",
+							"<html><code>&#09;</code></html>","<html><code>printf(\"Value in num: %d \\n\", </code></html>",
 						new Choice[] { new Choice("",false) },
 						"<html><code>);</code></html>" },
 				{ "<html><code>(\"Hello world!\");</code></html>" },
@@ -32,7 +32,6 @@ public class ExercisePointers extends ExerciseTemplate {
 						"<html><code>return 0;</code></html>" },
 				{ "<html><code>}</code></html>" } });
 
-		setTopic("Exercise ?");
 		setDescriptionPath("PointersDescription.html");
 		setPseudocodePath("PointersPseudocode.txt");
 		setGoodFeedbackPath("src/exercise/GoodFeedback.html");

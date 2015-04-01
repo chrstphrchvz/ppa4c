@@ -1,0 +1,11 @@
+main program
+    declare variable num
+    declare pointer to num called num_ptr
+    1852 at the location pointed to by num_ptr
+    print the following:
+        value in num,
+        address of num,
+        value of num_ptr
+        value at address pointed to by num_ptr
+   report success to operating system
+end

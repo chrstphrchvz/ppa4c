@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h3>
+			POINTERS&nbsp;</h3>
+		<div>
+			The pointer data type is used to hold a memory address. Using a pointer, an object in memory, such as another variable, can be accessed without needing access to the variable itself; a function, e.g. <code>scanf()</code>, is given a pointer to data to use or update instead of only being given a copy of it. Arrays and strings also make use of pointers that correspond to their starting addresses in memory.&nbsp;</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			Declaring a pointer is done with the data type of the memory object followed by *; if a pointer isn&rsquo;t used right away when declared, it should be assigned <code>NULL</code> (which is usually defined as 0). e.g.&nbsp;</div>
+		<div>
+			<code>int *num_ptr = NULL;&nbsp;</code></div>
+		<div>
+			&nbsp;</div>
+		<div>
+			Otherwise, an address of an object can be assigned to a pointer by using the address-of operator &amp;&nbsp;</div>
+		<div>
+			<code>num_ptr = &amp;num1;&nbsp;</code></div>
+		<div>
+			&nbsp;</div>
+		<div>
+			Pointers to scalar objects can be used in place of variables using the dereference operator *&nbsp;</div>
+		<div>
+			<code>int num2 = *num_ptr;&nbsp;</code></div>
+		<div>
+			&nbsp;</div>
+		<div>
+			(Recall how <code>scanf()</code> requires the &amp; operator before the names of local variables used to record input: this is so that <code>scanf()</code> knows where the local variable is in memory so that scan can modify it; i.e. what is actually passed to <code>scanf()</code> is a pointer.)</div>
+	</body>
+</html>

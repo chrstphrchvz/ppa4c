@@ -70,7 +70,8 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode("while"));
 		node_1.add(new DefaultMutableTreeNode("for"));
 		cRootTreeNode.add(node_1);
-		cRootTreeNode.add(new DefaultMutableTreeNode("Pointers"));
+		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Pointers",
+				exercise.ExercisePointers.class.getName())));
 		cRootTreeNode.add(new DefaultMutableTreeNode("Arrays"));
 		cRootTreeNode.add(new DefaultMutableTreeNode("Strings"));
 		node_1 = new DefaultMutableTreeNode("Sorting");
