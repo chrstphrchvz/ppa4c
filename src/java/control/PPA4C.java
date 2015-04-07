@@ -23,16 +23,6 @@ public class PPA4C {
 		 * This should be the only place to set L&F!
 		 */
 
-		// debug: print working directory
-		try {
-			System.out.println((new java.io.BufferedReader(
-					new java.io.InputStreamReader(Runtime.getRuntime()
-							.exec("pwd").getInputStream())).readLine()));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
 		try {
 			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
