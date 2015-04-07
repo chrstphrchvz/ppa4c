@@ -1,7 +1,9 @@
 package control;
 
 import java.awt.EventQueue;
+import java.io.IOException;
 
+import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UIManager.*;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -20,6 +22,17 @@ public class PPA4C {
 		 * 
 		 * This should be the only place to set L&F!
 		 */
+
+		// debug: print working directory
+		try {
+			System.out.println((new java.io.BufferedReader(
+					new java.io.InputStreamReader(Runtime.getRuntime()
+							.exec("pwd").getInputStream())).readLine()));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 		try {
 			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
@@ -48,6 +61,9 @@ public class PPA4C {
 				try {
 					MainWindow frame = new MainWindow();
 					frame.setVisible(true);
+					
+					//http://stackoverflow.com/questions/479523/java-swing-maximize-window
+					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

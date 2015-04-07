@@ -1,12 +1,15 @@
 package exercise;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.net.URL;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -18,6 +21,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+import javax.swing.border.TitledBorder;
 
 public class ExercisePanel extends JPanel implements ActionListener {
 
@@ -51,7 +57,30 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		tabbedPane.addTab("Description", null, descriptionScrollPane, null);
 
 		descriptionEditorPane = new JEditorPane();
+		descriptionEditorPane.setEditable(false);
 		descriptionEditorPane.setContentType("text/html");
+
+		/*
+		 * Hyperlink handling for JEditorPane
+		 * http://stackoverflow.com/questions/3693543/hyperlink-in-jeditorpane
+		 */
+		descriptionEditorPane.addHyperlinkListener(new HyperlinkListener() {
+			public void hyperlinkUpdate(HyperlinkEvent e) {
+				if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+					if (Desktop.isDesktopSupported()) {
+						try {
+							Desktop.getDesktop().browse(e.getURL().toURI());
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (URISyntaxException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+			}
+		});
 		descriptionScrollPane.setViewportView(descriptionEditorPane);
 
 		practicePanel = new JPanel();
@@ -61,49 +90,43 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		practicePanel.add(buttonPanel, BorderLayout.SOUTH);
 		checkWorkButton = new JButton();
 
-		checkWorkButton.setText("Check work >>");
+		checkWorkButton.setText("Check work");
 		buttonPanel.setLayout(new BorderLayout(0, 0));
 		buttonPanel.add(checkWorkButton, BorderLayout.EAST);
 		formTopPanel = new JPanel();
+		formTopPanel.setBorder(new TitledBorder(null, "Your work:",
+				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		pseudocodeScrollPane = new JScrollPane();
-		formLabel = new JLabel();
-
-		formLabel.setText("Your work:");
 
 		formTopPanel.setLayout(new BorderLayout(0, 0));
-		formTopPanel.add(formLabel, BorderLayout.NORTH);
 
 		splitPane = new JSplitPane();
 		practicePanel.add(splitPane);
 
 		pseudocodeTopPanel = new JPanel();
+		pseudocodeTopPanel.setBorder(new TitledBorder(null, "Pseudocode:",
+				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		splitPane.setLeftComponent(pseudocodeTopPanel);
 		pseudocodeTopPanel.setLayout(new BorderLayout(0, 0));
-		pseudocodeLabel = new JLabel();
-
-		pseudocodeLabel.setText("Pseudocode:");
-		pseudocodeTopPanel.add(pseudocodeLabel, BorderLayout.NORTH);
 		pseudocodeTopPanel.add(pseudocodeScrollPane, BorderLayout.CENTER);
 
-		pseudocodeInsidePanel = new JPanel();
-		pseudocodeScrollPane.setViewportView(pseudocodeInsidePanel);
-		pseudocodeInsidePanel.setLayout(new BorderLayout(0, 0));
 		pseudocodeEditorPane = new JEditorPane();
-		pseudocodeInsidePanel.add(pseudocodeEditorPane, BorderLayout.CENTER);
 		pseudocodeEditorPane.setEditable(false);
 		pseudocodeEditorPane.setBackground(UIManager.getDefaults().getColor(
 				"ToolTip.background"));
+
+		pseudocodeScrollPane.setViewportView(pseudocodeEditorPane);
 		splitPane.setRightComponent(formTopPanel);
 
 		formScrollPane = new JScrollPane();
 		formTopPanel.add(formScrollPane, BorderLayout.CENTER);
 
-		formStretchPanel = new JPanel();
-		formScrollPane.setViewportView(formStretchPanel);
-		formStretchPanel.setLayout(new BorderLayout(0, 0));
+		formSquishPanel = new JPanel();
+		formScrollPane.setViewportView(formSquishPanel);
+		formSquishPanel.setLayout(new BorderLayout(0, 0));
 		formGeneratedContentPanel = new FormGeneratedContentPanel(
 				exerciseTemplate.getLineArray());
-		formStretchPanel.add(formGeneratedContentPanel, BorderLayout.NORTH);
+		formSquishPanel.add(formGeneratedContentPanel, BorderLayout.NORTH);
 
 		checkWorkButton.addActionListener(this);
 
@@ -111,33 +134,30 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		 * Based on tutorial at
 		 * http://docs.oracle.com/javase/tutorial/uiswing/components
 		 * /editorpane.html#editorpane
+		 * 
+		 * Revised to derive URL from java.io.File.
 		 */
-		URL descriptionURL = ExerciseWindow.class.getResource(exerciseTemplate
-				.getDescriptionPath());
-		if (descriptionURL != null) {
-			try {
-				descriptionEditorPane.setPage(descriptionURL);
-			} catch (java.io.IOException e) {
-				System.err.println("Attempted to read a bad URL: "
-						+ exerciseTemplate.getDescriptionPath());
-			}
-		} else {
-			System.err.println("Couldn't find file: "
-					+ exerciseTemplate.getDescriptionPath());
+
+		try {
+			descriptionEditorPane.setPage(new File(exerciseTemplate
+					.getDescriptionPath()).toURI().toURL());
+		} catch (MalformedURLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
 		}
 
-		URL pseudocodeURL = ExerciseWindow.class.getResource(exerciseTemplate
-				.getPseudocodePath());
-		if (pseudocodeURL != null) {
-			try {
-				pseudocodeEditorPane.setPage(pseudocodeURL);
-			} catch (java.io.IOException e) {
-				System.err.println("Attempted to read a bad URL: "
-						+ exerciseTemplate.getPseudocodePath());
-			}
-		} else {
-			System.err.println("Couldn't find file: "
-					+ exerciseTemplate.getPseudocodePath());
+		try {
+			pseudocodeEditorPane.setPage(new File(exerciseTemplate
+					.getPseudocodePath()).toURI().toURL());
+		} catch (MalformedURLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
 		}
 
 	}
@@ -147,16 +167,12 @@ public class ExercisePanel extends JPanel implements ActionListener {
 	}
 
 	private JButton checkWorkButton;
-	private JLabel formLabel;
-	private JLabel pseudocodeLabel;
 	private JPanel buttonPanel;
 	private JPanel formTopPanel;
 	private JScrollPane pseudocodeScrollPane;
 	private JEditorPane pseudocodeEditorPane;
 	private JSplitPane splitPane;
 	private JScrollPane formScrollPane;
-	private JPanel formStretchPanel;
-	private JPanel pseudocodeInsidePanel;
 	private JTabbedPane tabbedPane;
 	private JPanel practicePanel;
 	private JScrollPane descriptionScrollPane;
@@ -165,6 +181,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 
 	private ExerciseTemplate exerciseTemplate;
 	private FormGeneratedContentPanel formGeneratedContentPanel;
+	private JPanel formSquishPanel;
 
 	public void actionPerformed(ActionEvent e) {
 

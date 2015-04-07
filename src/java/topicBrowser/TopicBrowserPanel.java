@@ -9,6 +9,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
 import mainWindow.MainWindow;
 import exercise.ExerciseTemplate;
+import javax.swing.border.TitledBorder;
 
 public class TopicBrowserPanel extends JPanel {
 
@@ -49,6 +50,7 @@ public class TopicBrowserPanel extends JPanel {
 	}
 
 	public TopicBrowserPanel(MainWindow mainWindow) {
+		setBorder(new TitledBorder(null, "Topics", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 
 		setLayout(new BorderLayout(0, 0));
 		jScrollPane2 = new javax.swing.JScrollPane();

@@ -1,7 +1,7 @@
 package exercise;
 
+import javax.swing.Box;
 import javax.swing.JPanel;
-
 import javax.swing.BoxLayout;
 
 import java.awt.FlowLayout;
@@ -65,6 +65,11 @@ public class FormGeneratedContentPanel extends JPanel {
 			System.err.println("l65");
 			add(linePanel);
 		}
+		
+		//add glue to take up empty space below form
+		linePanelArray.add(new JPanel());
+		linePanelArray.get(linePanelArray.size()-1).add(Box.createVerticalGlue());
+		
 	}
 
 	private ArrayList<JPanel> linePanelArray;
