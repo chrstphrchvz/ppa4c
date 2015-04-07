@@ -25,9 +25,9 @@ public class ExerciseExample extends ExerciseTemplate {
 				{ "<html><code>}</code></html>" } });
 
 		// setTopic("Exercise 1");
-		setDescriptionPath("Description.html");
-		setPseudocodePath("Pseudocode.txt");
-		setGoodFeedbackPath("src/exercise/GoodFeedback.html");
-		setBadFeedbackPath("src/exercise/BadFeedback.html");
+		setDescriptionPath("src/resources/Example/Description.html");
+		setPseudocodePath("src/resources/Example/Pseudocode.txt");
+		setGoodFeedbackPath("src/resources/Example/GoodFeedback.html");
+		setBadFeedbackPath("src/resources/Example/BadFeedback.html");
 	}
 }
