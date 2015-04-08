@@ -49,7 +49,7 @@ public class TopicBrowserPanel extends JPanel {
 
 	}
 
-	public TopicBrowserPanel(MainWindow mainWindow) {
+	public TopicBrowserPanel(final MainWindow mainWindow) {
 		setBorder(new TitledBorder(null, "Topics", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 
 		setLayout(new BorderLayout(0, 0));
@@ -64,7 +64,7 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode("Input:     scanf()"));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Conditional Constructs");
-		node_1.add(new DefaultMutableTreeNode("if"));
+		node_1.add(new DefaultMutableTreeNode(new Topic("if", exercise.ExerciseConditionals.class.getName())));
 		node_1.add(new DefaultMutableTreeNode("if/elseif/else"));
 		node_1.add(new DefaultMutableTreeNode("switch"));
 		cRootTreeNode.add(node_1);

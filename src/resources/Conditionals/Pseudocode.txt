@@ -1,0 +1,9 @@
+Write a program that outputs x ONLY IF x is greater than or equal to 10	
+
+Start
+     If x is greater than or equal to 10
+          Then output x
+
+    Otherwise
+           Do nothing
+end
