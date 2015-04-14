@@ -1,9 +1,10 @@
 Write a program that outputs x ONLY IF x is greater than or equal to 10	
 
 Start
+Declare an integer variable x
+Set x to 12
      If x is greater than or equal to 10
           Then output x
 
-    Otherwise
-           Do nothing
+
 end
