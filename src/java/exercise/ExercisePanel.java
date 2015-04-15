@@ -101,6 +101,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		formTopPanel.setLayout(new BorderLayout(0, 0));
 
 		splitPane = new JSplitPane();
+		splitPane.setResizeWeight(0.5);
 		practicePanel.add(splitPane);
 
 		pseudocodeTopPanel = new JPanel();

@@ -75,8 +75,9 @@ public class FormGeneratedContentPanel extends JPanel {
 			System.err.println("l77" + " "
 					+ questionComboBoxArray.get(i).getSelectedItem() + " "
 					+ answerArray.get(i));
-			if (questionComboBoxArray.get(i).getSelectedItem()
-					.equals(answerArray.get(i)))
+			// Use null-safe equals method
+			if (java.util.Objects.equals(questionComboBoxArray.get(i)
+					.getSelectedItem(), (answerArray.get(i))))
 				; // choice is correct, do nothing
 			else {
 				// choice is incorrect

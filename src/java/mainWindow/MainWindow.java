@@ -7,7 +7,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
-
 import exercise.ExercisePanel;
 import exercise.ExerciseTemplate;
 
@@ -23,7 +22,6 @@ public class MainWindow extends JFrame {
 	 */
 	public MainWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -31,14 +29,18 @@ public class MainWindow extends JFrame {
 		splitPane = new JSplitPane();
 		splitPane.setOneTouchExpandable(true);
 		leftComp = new topicBrowser.TopicBrowserPanel(this);
-		leftComp.setPreferredSize(new Dimension(250, Integer.MAX_VALUE));
+		leftComp.setPreferredSize(new Dimension(250, leftComp
+				.getPreferredSize().height));
+		leftComp.setMinimumSize(new Dimension(0,
+				leftComp.getMinimumSize().height));
 		rightComp = new title.TitlePanel();
 		contentPane.add(splitPane, BorderLayout.CENTER);
 		splitPane.setLeftComponent(leftComp);
 		splitPane.setRightComponent(rightComp);
-		splitPane.setDividerLocation(0.0);
+
+		splitPane.setDividerLocation(0);
 		setTitle("PPA4C");
-		pack();
+		// pack();
 	}
 
 	public void setExercise(ExerciseTemplate exerciseTemplate) {

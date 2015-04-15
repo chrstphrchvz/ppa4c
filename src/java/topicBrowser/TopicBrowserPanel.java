@@ -42,7 +42,6 @@ public class TopicBrowserPanel extends JPanel {
 			return topicNodeString;
 		}
 
-		@Override
 		public String toString() {
 			return getTopicNodeString();
 		}
@@ -57,6 +56,9 @@ public class TopicBrowserPanel extends JPanel {
 		jTree1 = new javax.swing.JTree();
 		cRootTreeNode = new DefaultMutableTreeNode("C");
 		DefaultMutableTreeNode node_1 = null;
+		cRootTreeNode.add(new DefaultMutableTreeNode(
+				new Topic("Intro/ReadMe to PPA4C", exercise.ExerciseIntro.class
+						.getName())));
 		node_1 = new DefaultMutableTreeNode("Input/Output");
 		node_1.add(new DefaultMutableTreeNode(new Topic("Output: printf() 1",
 				exercise.ExercisePrintf1.class.getName())));
