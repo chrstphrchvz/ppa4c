@@ -25,19 +25,18 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		// contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
 		splitPane = new JSplitPane();
 		splitPane.setOneTouchExpandable(true);
-		splitPane.setDividerLocation(0.0);
 		leftComp = new topicBrowser.TopicBrowserPanel(this);
-		leftComp.setPreferredSize(new Dimension(250,1000));
+		leftComp.setPreferredSize(new Dimension(250, Integer.MAX_VALUE));
 		rightComp = new title.TitlePanel();
 		contentPane.add(splitPane, BorderLayout.CENTER);
 		splitPane.setLeftComponent(leftComp);
 		splitPane.setRightComponent(rightComp);
+		splitPane.setDividerLocation(0.0);
 		setTitle("PPA4C");
 		pack();
 	}

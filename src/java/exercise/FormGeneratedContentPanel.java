@@ -1,17 +1,11 @@
 package exercise;
 
-import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
-
 import java.awt.FlowLayout;
-
 import javax.swing.JLabel;
-
 import java.util.ArrayList;
-
 import javax.swing.JComboBox;
-
 import exercise.ExerciseTemplate.Choice;
 
 public class FormGeneratedContentPanel extends JPanel {
@@ -55,8 +49,9 @@ public class FormGeneratedContentPanel extends JPanel {
 					questionComboBoxArray.add(new JComboBox<String>(
 							ExerciseTemplate
 									.getChoiceStrings((Choice[]) segment)));
-					//set default choice to -1 (blank)
-					questionComboBoxArray.get(questionComboBoxArray.size()-1).setSelectedIndex(-1);
+					// set default choice to -1 (blank)
+					questionComboBoxArray.get(questionComboBoxArray.size() - 1)
+							.setSelectedIndex(-1);
 					linePanelArray.get(linePanelArray.size() - 1).add(
 							questionComboBoxArray.get(questionComboBoxArray
 									.size() - 1));
@@ -67,11 +62,7 @@ public class FormGeneratedContentPanel extends JPanel {
 			System.err.println("l65");
 			add(linePanel);
 		}
-		
-		//add glue to take up empty space below form
-		linePanelArray.add(new JPanel());
-		linePanelArray.get(linePanelArray.size()-1).add(Box.createVerticalGlue());
-		
+
 	}
 
 	private ArrayList<JPanel> linePanelArray;
@@ -86,8 +77,9 @@ public class FormGeneratedContentPanel extends JPanel {
 					+ answerArray.get(i));
 			if (questionComboBoxArray.get(i).getSelectedItem()
 					.equals(answerArray.get(i)))
-				;
+				; // choice is correct, do nothing
 			else {
+				// choice is incorrect
 				a = false;
 				break;
 			}
