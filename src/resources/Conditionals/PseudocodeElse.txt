@@ -1,0 +1,21 @@
+Write a program that subtracts 2 from x if it is a positive number and inverts the sign if it is negative
+
+Start
+Declare an integer variables x1 and x2
+Set x1 to 12
+set x2 to -3
+     If x1 is greater than or equal to 0
+          set x1 equal to x1 minus 2
+     
+     else
+	  invert x1 
+     output x1	
+
+     If x2 is greater than or equal to 0
+          set x2 equal to x1 minus 2
+
+     else
+	  invert x2
+     output x2
+
+end

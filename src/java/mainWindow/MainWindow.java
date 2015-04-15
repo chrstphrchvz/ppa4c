@@ -2,9 +2,12 @@ package mainWindow;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+
 import exercise.ExercisePanel;
 import exercise.ExerciseTemplate;
 
@@ -30,6 +33,7 @@ public class MainWindow extends JFrame {
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerLocation(0.0);
 		leftComp = new topicBrowser.TopicBrowserPanel(this);
+		leftComp.setPreferredSize(new Dimension(250,1000));
 		rightComp = new title.TitlePanel();
 		contentPane.add(splitPane, BorderLayout.CENTER);
 		splitPane.setLeftComponent(leftComp);
