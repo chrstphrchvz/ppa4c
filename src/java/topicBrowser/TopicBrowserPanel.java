@@ -42,7 +42,6 @@ public class TopicBrowserPanel extends JPanel {
 			return topicNodeString;
 		}
 
-		@Override
 		public String toString() {
 			return getTopicNodeString();
 		}
@@ -50,22 +49,28 @@ public class TopicBrowserPanel extends JPanel {
 	}
 
 	public TopicBrowserPanel(final MainWindow mainWindow) {
-		setBorder(new TitledBorder(null, "Topics", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		setBorder(new TitledBorder(null, "Topics", TitledBorder.LEADING,
+				TitledBorder.TOP, null, null));
 
 		setLayout(new BorderLayout(0, 0));
-		jScrollPane2 = new javax.swing.JScrollPane();
-		add(jScrollPane2);
 		jTree1 = new javax.swing.JTree();
 		cRootTreeNode = new DefaultMutableTreeNode("C");
 		DefaultMutableTreeNode node_1 = null;
+		cRootTreeNode.add(new DefaultMutableTreeNode(
+				new Topic("Intro/ReadMe to PPA4C", exercise.ExerciseIntro.class
+						.getName())));
 		node_1 = new DefaultMutableTreeNode("Input/Output");
-		node_1.add(new DefaultMutableTreeNode(new Topic("Output: printf()",
-				exercise.ExerciseExample.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("Output: printf() 1",
+				exercise.ExercisePrintf1.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("Output: printf() 2",
+				exercise.ExercisePrintf2.class.getName())));
 		node_1.add(new DefaultMutableTreeNode("Input:     scanf()"));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Conditional Constructs");
-		node_1.add(new DefaultMutableTreeNode(new Topic("if", exercise.ExerciseConditionals.class.getName())));
-		node_1.add(new DefaultMutableTreeNode("if/elseif/else"));
+		node_1.add(new DefaultMutableTreeNode(new Topic("if",
+				exercise.ExerciseConditionals.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("if/else",
+				exercise.ExerciseIfElse.class.getName())));
 		node_1.add(new DefaultMutableTreeNode("switch"));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Loops\t");
@@ -86,7 +91,8 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode("output"));
 		cRootTreeNode.add(node_1);
 		jTree1.setModel(new DefaultTreeModel(cRootTreeNode));
-		jScrollPane2.setColumnHeaderView(jTree1);
+		jScrollPane2 = new javax.swing.JScrollPane(jTree1);
+		add(jScrollPane2);
 		jLabel1 = new javax.swing.JLabel();
 
 		jLabel1.setText("Topics");
@@ -105,27 +111,15 @@ public class TopicBrowserPanel extends JPanel {
 				else
 					System.out.println(node);
 				if (node.getUserObject() instanceof Topic) {
-					// Moved from ExerciseWindow.main() (created by
-					// WindowBuilder)
-					/*
-					 * EventQueue.invokeLater(new Runnable() { public void run()
-					 * {
-					 * 
-					 * ExerciseWindow frame = new ExerciseWindow(
-					 * (ExerciseTemplate) Class.forName( ((Topic)
-					 * node.getUserObject()) .getTopicClassString())
-					 * .newInstance()); frame.setVisible(true);
-					 * 
-					 * } });
-					 */
 					try {
 						mainWindow.setExercise((ExerciseTemplate) Class
 								.forName(
 										((Topic) node.getUserObject())
 												.getTopicClassString())
 								.newInstance());
-						mainWindow.setTitle("PPA4C - " + ((Topic) node.getUserObject())
-								.getTopicNodeString());
+						mainWindow.setTitle("PPA4C - "
+								+ ((Topic) node.getUserObject())
+										.getTopicNodeString());
 					} catch (ClassNotFoundException e1) {
 						e1.printStackTrace();
 					} catch (Exception e1) {

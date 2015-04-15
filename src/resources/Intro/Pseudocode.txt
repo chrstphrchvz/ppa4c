@@ -1,0 +1,22 @@
+Welcome to the practice tab!
+
+This is the pseudocode area,
+where notes for a program will appear.
+
+Note that most lines of the pseudocode
+will correspond to lines of the actual program. 
+
+To the right is the C program form, a.k.a. "Your work".
+Most of the C program is done for you;
+use the drop-down boxes to finish the program.
+
+For this intro, set each choice
+to obtain the statements below: 
+	int a = 9;
+	double b = 4.0;
+	char c = 'q';
+
+Pick your answers, and then click "Check work"
+in the lower-right corner.
+The Results dialog will then appear with feedback.
+	

@@ -10,25 +10,27 @@
 		<div>
 			&nbsp;</div>
 		<div>
-			Declaring a pointer is done with the data type of the memory object followed by *; if a pointer isn&rsquo;t used right away when declared, it should be assigned <code>NULL</code> (which is usually defined as 0). e.g.&nbsp;</div>
+			Declaring a pointer is done with the data type of the memory object followed by <code>*</code>; if a pointer isn't used right away when declared, it should be assigned <code>NULL</code> (which is usually defined as 0), e.g.</div>
 		<div>
 			<code>int *num_ptr = NULL;&nbsp;</code></div>
 		<div>
 			&nbsp;</div>
 		<div>
-			Otherwise, an address of an object can be assigned to a pointer by using the address-of operator &amp;&nbsp;</div>
+			Otherwise, an address of an object can be assigned to a pointer by using the address-of operator <code>&amp;</code>:</div>
 		<div>
 			<code>num_ptr = &amp;num1;&nbsp;</code></div>
 		<div>
 			&nbsp;</div>
+			<br>
+			<img src="diagram.png">
 		<div>
-			Pointers to scalar objects can be used in place of variables using the dereference operator *&nbsp;</div>
+			Pointers to scalar objects can be used in place of variables using the dereference operator <code>*</code>:</div>
 		<div>
 			<code>int num2 = *num_ptr;&nbsp;</code></div>
 		<div>
 			&nbsp;</div>
 		<div>
-			(Recall how <code>scanf()</code> requires the &amp; operator before the names of local variables used to record input: this is so that <code>scanf()</code> knows where the local variable is in memory so that scan can modify it; i.e. what is actually passed to <code>scanf()</code> is a pointer.)</div>
+			(Recall how <code>scanf()</code> requires the <code>&amp;</code> operator before the names of local variables used to record input: this is so that <code>scanf()</code> knows where the local variable is in memory in order to modify it; what is actually passed to <code>scanf()</code> is a pointer, rather than the value of a variable.)</div>
 			<div>More info: <a href="http://www.tutorialspoint.com/cprogramming/c_pointers.htm">tutorialspoint - Pointers in C</a></div>
 	</body>
 </html>

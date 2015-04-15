@@ -1,7 +1,7 @@
 package exercise;
 
-public class ExerciseExample extends ExerciseTemplate {
-	public ExerciseExample() {
+public class ExercisePrintf1 extends ExerciseTemplate {
+	public ExercisePrintf1() {
 		setLineArray(new Object[][] {
 
 				// Line 1-2: array of strings
@@ -25,9 +25,9 @@ public class ExerciseExample extends ExerciseTemplate {
 				{ "<html><code>}</code></html>" } });
 
 		// setTopic("Exercise 1");
-		setDescriptionPath("src/resources/Example/Description.html");
-		setPseudocodePath("src/resources/Example/Pseudocode.txt");
-		setGoodFeedbackPath("src/resources/Example/GoodFeedback.html");
-		setBadFeedbackPath("src/resources/Example/BadFeedback.html");
+		setDescriptionPath("src/resources/Printf1/Description.html");
+		setPseudocodePath("src/resources/Printf1/Pseudocode.txt");
+		setGoodFeedbackPath("src/resources/Printf1/GoodFeedback.html");
+		setBadFeedbackPath("src/resources/Printf1/BadFeedback.html");
 	}
 }
