@@ -1,0 +1,11 @@
+Write a program that reads from a File.
+
+Start
+	Declare pointer to file
+	Set char buf for paramters to read in characters
+	open text file
+	read from file
+	get from text file
+	print out string from char buf
+	close file
+Finish

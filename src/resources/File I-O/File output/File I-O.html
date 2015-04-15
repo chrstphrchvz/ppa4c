@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<p align="center">
+			<strong>File I/O</strong></p>
+		<p>
+			<strong>Description and Introduction:</strong></p>
+		<p>
+			In this session you will learn how to manipulate and create files through C. Main functions you will note are: <strong>fopen</strong>, <strong>fwrite</strong>, <strong>fread</strong>, <strong>fprintf</strong>, <strong>fscanf</strong>, <strong>fgetc</strong>, <strong>fputc</strong>.</p>
+		<p>
+			First you must access a file with a pointer like this example:</p>
+		<p>
+			<strong>FILE *someFile;</strong></p>
+		<p>
+			Then you must open the file to manipulate it (or to create a file) you must set a location and its mode:</p>
+		<p>
+			<strong>FILE *fopen(const char *filename, const char *mode);</strong></p>
+		<p>
+			There are 6 different modes that allowed:</p>
+		<p>
+			<strong><em>r &ndash; open for reading</em></strong></p>
+		<p>
+			<strong><em>w- open for writing (file need not exist)</em></strong></p>
+		<p>
+			<strong><em>a &ndash; open for appending (file need not exist)</em></strong></p>
+		<p>
+			<strong><em>r+ - open for reading and writing, start at beginning</em></strong></p>
+		<p>
+			<strong><em>w+ - open for reading and writing (overwrite file)</em></strong></p>
+		<p>
+			<strong><em>a+ - open for reading and writing (append if file exists)</em></strong></p>
+		<p>
+			Keep in mind for future coding, depending on location of the file you are accessing you may need to pin point by adding a &ldquo;..//&rdquo; to find it. So otherwise it may look something like this:</p>
+		<p>
+			<strong>FILE *someFILE;</strong></p>
+		<p>
+			<strong>someFILE = fopen(..\\YO.mama.txt&rdquo;. &ldquo;r&rdquo;);</strong></p>
+		<p>
+			Also note you MUST ALWAYS close a file near the end of your main. So right before your return(0); &nbsp;put something like this:</p>
+		<p>
+			<strong>fclose(something);</strong></p>
+		<p>
+			Now for using the rest of functions that we will go over.</p>
+		<p>
+			fprintf and fscanf allows you to output to a file and input from the user.</p>
+		<p>
+			Syntax for fprintf: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>fprintf(something, &ldquo;Testing&hellip; \n&rdquo;);</strong></p>
+		<p>
+			fgets &ldquo;gets&rdquo; data from a file an example is:</p>
+		<p>
+			<strong>int fgetc (FILE *somefile);</strong></p>
+		<p>
+			and fputc function allows you to put in data in a file</p>
+		<p>
+			<strong>int fputc ( int c, FILE *fp ); </strong></p>
+		<p>
+			For input, note that you must first make a buffer for the type of information you are taking in, for this exercise you are reading in a string. A buffer example would look something like this:</p>
+		<p>
+			<strong>char buff[1000];</strong></p>
+		<p>
+			&nbsp;</p>
+		<p>
+			After creating a buffer and opening a file, you must retrieve the contents from file. Printing out like a normal string, take note once you start the questioning and refer back to this description to go over the syntax.&nbsp;</p>
+	</body>
+</html>
