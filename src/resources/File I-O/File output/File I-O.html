@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<p align="center">
-			<span style="font-size:20px;"><strong>File I/O</strong></span></p>
+			<strong>File I/O</strong></p>
 		<p>
 			<strong>Description and Introduction:</strong></p>
 		<p>
@@ -42,14 +42,26 @@
 		<p>
 			<strong>fclose(something);</strong></p>
 		<p>
-			Now for using the rest of functions that we will go over. fprintf and fscanf allows you to output to a file and input from the user.</p>
+			Now for using the rest of functions that we will go over.</p>
 		<p>
-			Syntax for fprintf: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>fprintf(something, &ldquo;Testing&hellip; \n&rdquo;);</strong></p>
+			fprintf and fscanf allows you to output to a file and input from the user.</p>
 		<p>
-			fgets &ldquo;gets&rdquo; data from a file an example is: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>int fgetc (FILE *somefile);</strong></p>
+			Syntax for fprintf: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>fprintf(something, &ldquo;Testing&hellip; \n&rdquo;);</strong></p>
+		<p>
+			fgets &ldquo;gets&rdquo; data from a file an example is:</p>
+		<p>
+			<strong>int fgetc (FILE *somefile);</strong></p>
 		<p>
 			and fputc function allows you to put in data in a file</p>
 		<p>
-			<strong>int fputc ( int c, FILE *fp );&nbsp;</strong></p>
+			<strong>int fputc ( int c, FILE *fp ); </strong></p>
+		<p>
+			For input, note that you must first make a buffer for the type of information you are taking in, for this exercise you are reading in a string. A buffer example would look something like this:</p>
+		<p>
+			<strong>char buff[1000];</strong></p>
+		<p>
+			&nbsp;</p>
+		<p>
+			After creating a buffer and opening a file, you must retrieve the contents from file. Printing out like a normal string, take note once you start the questioning and refer back to this description to go over the syntax.&nbsp;</p>
 	</body>
 </html>

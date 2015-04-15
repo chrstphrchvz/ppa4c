@@ -51,10 +51,10 @@ public class ExerciseFileIO extends ExerciseTemplate {
 				{ "<html><code>return(0); </code></html>"}});
 					
 		
-		setDescriptionPath("src/resources/File I-O/File I-O.html");
-		setPseudocodePath("src/resources/File I-O/Pseudo.txt");
-		setGoodFeedbackPath("src/resources/File I-O/rightanswer.html");
-		setBadFeedbackPath("src/resources/File I-O/wronganswer.html");
+		setDescriptionPath("src/resources/File I-O/File output/File I-O.html");
+		setPseudocodePath("src/resources/File I-O/File output/Pseudo.txt");
+		setGoodFeedbackPath("src/resources/File I-O/File output/rightanswer.html");
+		setBadFeedbackPath("src/resources/File I-O/File output/wronganswer.html");
 		
 	}}
 	

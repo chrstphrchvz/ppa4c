@@ -82,8 +82,8 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode("Insertion"));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("File I/O");
-		node_1.add(new DefaultMutableTreeNode(new Topic("input",exercise.ExerciseFileIO.class.getName())));
-		node_1.add(new DefaultMutableTreeNode("output"));
+		node_1.add(new DefaultMutableTreeNode(new Topic("input",exercise.ExerciseFileInput.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("output",exercise.ExerciseFileIO.class.getName())));
 		cRootTreeNode.add(node_1);
 		jTree1.setModel(new DefaultTreeModel(cRootTreeNode));
 		jScrollPane2.setColumnHeaderView(jTree1);

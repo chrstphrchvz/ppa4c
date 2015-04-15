@@ -2,7 +2,7 @@ Write a program that Writes onto a FILE
 
 Start
      Declare pointer to file
-     Open file and set type
+     Open file and set type write
      Write onto file
      Close file
 Finish
