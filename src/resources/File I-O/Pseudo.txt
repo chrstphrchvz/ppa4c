@@ -1,0 +1,8 @@
+Write a program that Writes onto a FILE
+
+Start
+     Declare pointer to file
+     Open file and set type
+     Write onto file
+     Close file
+Finish
