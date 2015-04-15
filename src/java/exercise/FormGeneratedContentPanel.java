@@ -53,8 +53,10 @@ public class FormGeneratedContentPanel extends JPanel {
 					}
 					// create combobox from choices
 					questionComboBoxArray.add(new JComboBox<String>(
-							ExerciseExample
+							ExerciseTemplate
 									.getChoiceStrings((Choice[]) segment)));
+					//set default choice to -1 (blank)
+					questionComboBoxArray.get(questionComboBoxArray.size()-1).setSelectedIndex(-1);
 					linePanelArray.get(linePanelArray.size() - 1).add(
 							questionComboBoxArray.get(questionComboBoxArray
 									.size() - 1));

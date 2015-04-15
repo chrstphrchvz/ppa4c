@@ -29,6 +29,8 @@ public class ExercisePointers extends ExerciseTemplate {
 								new Choice(
 										"<html><code>&amp;num</code></html>",
 										true) }, "<html><code>;</code></html>" },
+				{ "<html><code>&#09;</code></html>",
+						"<html><code>*num_ptr = 1852</code></html>" },
 				{ "<html><code>&#09;</code></html>" /* empty line */},
 				{
 						"<html><code>&#09;</code></html>",
