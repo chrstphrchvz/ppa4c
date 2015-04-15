@@ -1,12 +1,14 @@
 package title;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.BoxLayout;
-import java.awt.BorderLayout;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class TitlePanel extends JPanel {
 
@@ -39,10 +41,9 @@ public class TitlePanel extends JPanel {
 		panel_2.add(panel);
 		panel.setOpaque(false);
 		panel.setLayout(new BorderLayout(0, 0));
-		JLabel label = new JLabel("<html><code>" + "/* insert flower here */"
-				+ "</code></html>");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(label);
+		ImageIcon flowerIcon = new ImageIcon("src/resources/Flower.gif");
+		JLabel flowerLabel = new JLabel(flowerIcon);
+		panel.add(flowerLabel);
 
 		panel_1 = new JPanel();
 		panel_2.add(panel_1);
