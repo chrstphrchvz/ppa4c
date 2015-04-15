@@ -1,0 +1,8 @@
+Create a string that says:
+	Hello World!
+
+Find the length of that string.
+
+Output the string that you created.
+
+Output the length of the string.

@@ -69,13 +69,13 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode("switch"));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Loops\t");
-		node_1.add(new DefaultMutableTreeNode("while"));
-		node_1.add(new DefaultMutableTreeNode("for"));
+		node_1.add(new DefaultMutableTreeNode(new Topic("while", exercise.ExerciseWhile.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("for", exercise.ExerciseFor.class.getName())));
 		cRootTreeNode.add(node_1);
 		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Pointers",
 				exercise.ExercisePointers.class.getName())));
-		cRootTreeNode.add(new DefaultMutableTreeNode("Arrays"));
-		cRootTreeNode.add(new DefaultMutableTreeNode("Strings"));
+		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Arrays", exercise.ExerciseArray.class.getName())));
+		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Strings", exercise.ExerciseString.class.getName())));
 		node_1 = new DefaultMutableTreeNode("Sorting");
 		node_1.add(new DefaultMutableTreeNode("Search"));
 		node_1.add(new DefaultMutableTreeNode("Bubble"));
