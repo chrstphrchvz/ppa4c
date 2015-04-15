@@ -1,0 +1,10 @@
+start
+	declared variables:
+		a = 5
+		b = 6.7
+		c = 'E'
+		x = "Hugh"
+	print a (as decimal), b, and c on one line
+	then print x on another line
+	return statement
+end

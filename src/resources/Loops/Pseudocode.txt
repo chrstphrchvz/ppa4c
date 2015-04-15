@@ -1,0 +1,9 @@
+Start
+declare the integer x
+ set it equal to 0
+While x is less than 20
+ If the remainder of x/2 is 0
+    Print x
+ Add one to x
+End
+

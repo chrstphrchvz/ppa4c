@@ -1,0 +1,11 @@
+Create a one dimensional integer array with 5 spaces
+
+Set the first element in the array to 1.
+
+Set the second element to 2.
+
+Set the third element to 3.
+
+output the third element.
+
+Create a 5x5 two dimensional integer array.

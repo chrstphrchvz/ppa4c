@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>
+			printf() part 2</h1>
+		<p>
+			Here&#39;s where the <em>formatting </em>part of printf is useful: besides just printing strings, printf() can also print data from a program.</p>
+		<p>
+			The string given to printf() can contain conversion specifiers (a.k.a. format placeholders) which tell printf() to replace that specifier with data when it is run.</p>
+		<p>
+			A few conversion specifiers are:</p>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tbody>
+				<tr>
+					<td style="width:48px;">
+						<p>
+							%d</p>
+					</td>
+					<td style="width:219px;">
+						<p>
+							Decimal (base 10) integer</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:48px;">
+						<p>
+							%x</p>
+					</td>
+					<td style="width:219px;">
+						<p>
+							Hexadecimal (base 16) integer</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:48px;">
+						<p>
+							%f</p>
+					</td>
+					<td style="width:219px;">
+						<p>
+							Single precision floating point</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:48px;">
+						<p>
+							%lf</p>
+					</td>
+					<td style="width:219px;">
+						<p>
+							Double precision floating point</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:48px;">
+						<p>
+							%c</p>
+					</td>
+					<td style="width:219px;">
+						<p>
+							Character</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:48px;">
+						<p>
+							%s</p>
+					</td>
+					<td style="width:219px;">
+						<p>
+							Null-terminated string</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>
+			&nbsp;</h2>
+		<p>
+			More conversion specifiers are available as well as formatting parameters for each that give a higher level of control over the output. The useful thing about printf() is its ability to convert a variety of things in memory (e.g. <strong>0xFFFFFFDD</strong> or<strong> 0x576F7700</strong>) to something useful (<strong>-35</strong> or <strong>&quot;Wow&quot;</strong>) so that we don&#39;t have to ourselves, and we can go on to write useful programs!</p>
+		<p>
+			&nbsp;</p>
+		<h2>
+			Usage</h2>
+		<p>
+			Be sure to have the line</p>
+		<p>
+			#include &lt;stdio.h&gt;</p>
+		<p>
+			at the beginning of the .c file for a program.</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			The first argument is the string with any conversion specifiers; for each specifier used, there must be an argument corresponding to the data to be printed, in the order they appear in the string.</p>
+		<p>
+			printf(&quot;%s, %s %d, %d\n&quot;, &quot;Friday&quot;, &quot;February&quot;, 13, 2015);</p>
+		<p>
+			printf(&quot;%d:%d%cM&quot;, 11, 10, &#39;A&#39;);</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			prints</p>
+		<p>
+			Friday, February 13, 2015</p>
+		<p>
+			11:10AM</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			The arguments may be either literals (as above) or names of variables:</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			int a = 49;</p>
+		<p>
+			int b = 30;</p>
+		<p>
+			int unknown = a * b;</p>
+		<p>
+			printf(&quot;%d * %d = %d&quot;, a, b, unknown);</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			prints</p>
+		<p>
+			49 * 30 = 1470</p>
+	</body>
+</html>

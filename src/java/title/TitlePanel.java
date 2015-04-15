@@ -23,13 +23,6 @@ public class TitlePanel extends JPanel {
 	public TitlePanel() {
 		setLayout(new BorderLayout(0, 0));
 		jButton1 = new javax.swing.JButton();
-		/*
-		 * jButton1.addMouseListener(new MouseAdapter() {
-		 * 
-		 * @Override public void mouseClicked(MouseEvent arg0) {
-		 * this.setVisible(false); new TopicBrowserWindow().setVisible(true); }
-		 * });
-		 */
 		jLabel2 = new JLabel(
 				"<html><i>Click on the </i><b>&gt;</b><i> to show topics</i></p></html>");
 		jLabel2.setHorizontalAlignment(SwingConstants.CENTER);
