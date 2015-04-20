@@ -1,7 +1,5 @@
 package exercise;
 
-import exercise.ExerciseTemplate.Choice;
-
 public class ExercisePrintf2 extends ExerciseTemplate {
 	public ExercisePrintf2() {
 		setLineArray(new Object[][] {
@@ -72,9 +70,9 @@ public class ExercisePrintf2 extends ExerciseTemplate {
 						"<html><code>return 0;</code></html>" },
 				{ "<html><code>}</code></html>" } });
 
-		setDescriptionPath("src/resources/Printf2/Description.html");
-		setPseudocodePath("src/resources/Printf2/Pseudocode.txt");
-		setGoodFeedbackPath("src/resources/Printf2/GoodFeedback.html");
-		setBadFeedbackPath("src/resources/Printf2/BadFeedback.html");
+		setDescriptionPath("resources/Printf2/Description.html");
+		setPseudocodePath("resources/Printf2/Pseudocode.txt");
+		setGoodFeedbackPath("resources/Printf2/GoodFeedback.html");
+		setBadFeedbackPath("resources/Printf2/BadFeedback.html");
 	}
 }

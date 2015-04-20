@@ -4,11 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
@@ -32,14 +28,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 	 */
 	public ExercisePanel(ExerciseTemplate exerciseTemplate) {
 
-		// setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		// getContentPane().setLayout(new BorderLayout(0, 0));
-
-		// exerciseTemplate refers to the specific exercise being used
-		// (convert to constructor argument?)
 		setExerciseTemplate(exerciseTemplate);
-
-		// setTitle("Topic: " + exerciseTemplate.getTopic());
 
 		/*
 		 * Due to https://bugs.openjdk.java.net/browse/JDK-6789980, the
@@ -47,7 +36,6 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		 * when using Nimbus L&F.
 		 */
 
-		// getContentPane().add(exercisePanel, BorderLayout.CENTER);
 		setLayout(new BorderLayout(0, 0));
 
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -135,30 +123,22 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		 * Based on tutorial at
 		 * http://docs.oracle.com/javase/tutorial/uiswing/components
 		 * /editorpane.html#editorpane
-		 * 
-		 * Revised to derive URL from java.io.File.
 		 */
 
 		try {
-			descriptionEditorPane.setPage(new File(exerciseTemplate
-					.getDescriptionPath()).toURI().toURL());
-		} catch (MalformedURLException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
+			descriptionEditorPane.setPage(getClass().getClassLoader()
+					.getResource(exerciseTemplate.getDescriptionPath()));
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 
 		try {
-			pseudocodeEditorPane.setPage(new File(exerciseTemplate
-					.getPseudocodePath()).toURI().toURL());
-		} catch (MalformedURLException e2) {
+			pseudocodeEditorPane.setPage(getClass().getClassLoader()
+					.getResource(exerciseTemplate.getPseudocodePath()));
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
+			e1.printStackTrace();
 		}
 
 	}
@@ -198,22 +178,17 @@ public class ExercisePanel extends JPanel implements ActionListener {
 			messageType = JOptionPane.ERROR_MESSAGE;
 		}
 
-		try {
-			s = new Scanner(new FileInputStream(new File(pathname)));
-			s.useDelimiter("\\Z");
+		s = new Scanner(getClass().getClassLoader().getResourceAsStream(
+				pathname));
+		s.useDelimiter("\\Z");
 
-			/*
-			 * HTML formatted output is contained in new JLabel as workaround of
-			 * https://bugs.openjdk.java.net/browse/JDK-8042134
-			 */
-			JOptionPane.showMessageDialog(null, new JLabel(s.next()),
-					"Results", messageType);
-			s.close();
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
+		/*
+		 * HTML formatted output is contained in new JLabel as workaround of
+		 * https://bugs.openjdk.java.net/browse/JDK-8042134
+		 */
+		JOptionPane.showMessageDialog(null, new JLabel(s.next()), "Results",
+				messageType);
+		s.close();
 	}
 
 }

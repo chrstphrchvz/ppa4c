@@ -25,9 +25,9 @@ public class ExercisePrintf1 extends ExerciseTemplate {
 				{ "<html><code>}</code></html>" } });
 
 		// setTopic("Exercise 1");
-		setDescriptionPath("src/resources/Printf1/Description.html");
-		setPseudocodePath("src/resources/Printf1/Pseudocode.txt");
-		setGoodFeedbackPath("src/resources/Printf1/GoodFeedback.html");
-		setBadFeedbackPath("src/resources/Printf1/BadFeedback.html");
+		setDescriptionPath("resources/Printf1/Description.html");
+		setPseudocodePath("resources/Printf1/Pseudocode.txt");
+		setGoodFeedbackPath("resources/Printf1/GoodFeedback.html");
+		setBadFeedbackPath("resources/Printf1/BadFeedback.html");
 	}
 }

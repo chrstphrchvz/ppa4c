@@ -1,8 +1,6 @@
 package control;
 
 import java.awt.EventQueue;
-import java.io.IOException;
-
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UIManager.*;
@@ -46,15 +44,16 @@ public class PPA4C {
 
 		// If Nimbus is not available, you can set the GUI to another look and
 		// feel.
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MainWindow frame = new MainWindow();
 					frame.setVisible(true);
-					
-					//http://stackoverflow.com/questions/479523/java-swing-maximize-window
-					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+
+					// http://stackoverflow.com/questions/479523/java-swing-maximize-window
+					frame.setExtendedState(frame.getExtendedState()
+							| JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

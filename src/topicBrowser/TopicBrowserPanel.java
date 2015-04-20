@@ -74,21 +74,27 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode("switch"));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Loops\t");
-		node_1.add(new DefaultMutableTreeNode(new Topic("while", exercise.ExerciseWhile.class.getName())));
-		node_1.add(new DefaultMutableTreeNode(new Topic("for", exercise.ExerciseFor.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("while",
+				exercise.ExerciseWhile.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("for",
+				exercise.ExerciseFor.class.getName())));
 		cRootTreeNode.add(node_1);
 		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Pointers",
 				exercise.ExercisePointers.class.getName())));
-		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Arrays", exercise.ExerciseArray.class.getName())));
-		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Strings", exercise.ExerciseString.class.getName())));
+		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Arrays",
+				exercise.ExerciseArray.class.getName())));
+		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Strings",
+				exercise.ExerciseString.class.getName())));
 		node_1 = new DefaultMutableTreeNode("Sorting");
 		node_1.add(new DefaultMutableTreeNode("Search"));
 		node_1.add(new DefaultMutableTreeNode("Bubble"));
 		node_1.add(new DefaultMutableTreeNode("Insertion"));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("File I/O");
-		node_1.add(new DefaultMutableTreeNode(new Topic("input",exercise.ExerciseFileInput.class.getName())));
-		node_1.add(new DefaultMutableTreeNode(new Topic("output",exercise.ExerciseFileIO.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("input",
+				exercise.ExerciseFileInput.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("output",
+				exercise.ExerciseFileIO.class.getName())));
 		cRootTreeNode.add(node_1);
 		jTree1.setModel(new DefaultTreeModel(cRootTreeNode));
 		jScrollPane2 = new javax.swing.JScrollPane(jTree1);
