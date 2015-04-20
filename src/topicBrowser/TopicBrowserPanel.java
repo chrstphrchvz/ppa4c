@@ -71,7 +71,8 @@ public class TopicBrowserPanel extends JPanel {
 				exercise.ExerciseConditionals.class.getName())));
 		node_1.add(new DefaultMutableTreeNode(new Topic("if/else",
 				exercise.ExerciseIfElse.class.getName())));
-		node_1.add(new DefaultMutableTreeNode("switch"));
+		node_1.add(new DefaultMutableTreeNode(new Topic("switch",
+				exercise.ExerciseSwitch.class.getName())));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Loops\t");
 		node_1.add(new DefaultMutableTreeNode(new Topic("while",
