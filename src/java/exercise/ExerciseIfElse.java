@@ -102,9 +102,9 @@ public class ExerciseIfElse extends ExerciseTemplate {
 				"<html><code>return 0;</code></html>" },
 				{ "<html><code>}</code></html>" }
 		});
-		setDescriptionPath("src/resources/Conditionals/Conditionals.htm");
+		setDescriptionPath("src/resources/Conditionals/ConditionalsElse.htm");
 		setPseudocodePath("src/resources/Conditionals/PseudocodeElse.txt");
 		setGoodFeedbackPath("src/resources/Conditionals/GoodFeedback2.html");
-		setBadFeedbackPath("src/resources/Conditionals/BadFeedback.html");
+		setBadFeedbackPath("src/resources/Conditionals/BadFeedback2.html");
 	}
 }
