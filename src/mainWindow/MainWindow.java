@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 		splitPane.setLeftComponent(leftComp);
 		splitPane.setRightComponent(rightComp);
 
-		splitPane.setDividerLocation(0);
+		splitPane.setDividerLocation(300);
 		setTitle("PPA4C");
 		// pack();
 	}
