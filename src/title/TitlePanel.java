@@ -25,7 +25,7 @@ public class TitlePanel extends JPanel {
 		setLayout(new BorderLayout(0, 0));
 		jButton1 = new javax.swing.JButton();
 		jLabel2 = new JLabel(
-				"<html><i>Click on the </i><b>&gt;</b><i> to show topics</i></p></html>");
+				"<html><h1>Click on a topic to begin</h1></html>");
 		jLabel2.setHorizontalAlignment(SwingConstants.CENTER);
 		add(jLabel2, BorderLayout.SOUTH);
 
