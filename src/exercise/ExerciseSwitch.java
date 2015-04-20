@@ -1,7 +1,5 @@
 package exercise;
 
-import exercise.ExerciseTemplate.Choice;
-
 public class ExerciseSwitch extends ExerciseTemplate {
 	public ExerciseSwitch() {
 		setLineArray(new Object[][] {
@@ -192,9 +190,9 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				"<html><code>return 0;</code></html>" },
 				{ "<html><code>}</code></html>" }
 		});
-		setDescriptionPath("src/resources/Conditionals/ConditionalsSwitch.htm");
-		setPseudocodePath("src/resources/Conditionals/PseudocodeSwitch.txt");
-		setGoodFeedbackPath("src/resources/Conditionals/GoodFeedback3.html");
-		setBadFeedbackPath("src/resources/Conditionals/BadFeedback3.html");
+		setDescriptionPath("resources/Conditionals/ConditionalsSwitch.htm");
+		setPseudocodePath("resources/Conditionals/PseudocodeSwitch.txt");
+		setGoodFeedbackPath("resources/Conditionals/GoodFeedback3.html");
+		setBadFeedbackPath("resources/Conditionals/BadFeedback3.html");
 	}
 }

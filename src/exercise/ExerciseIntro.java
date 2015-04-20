@@ -1,7 +1,5 @@
 package exercise;
 
-import exercise.ExerciseTemplate.Choice;
-
 public class ExerciseIntro extends ExerciseTemplate {
 	public ExerciseIntro() {
 		setLineArray(new Object[][] {
@@ -37,10 +35,10 @@ public class ExerciseIntro extends ExerciseTemplate {
 										true) },
 						"<html><code> c = 'q';</code></html>" } });
 
-		setDescriptionPath("src/resources/Intro/Description.html");
-		setPseudocodePath("src/resources/Intro/Pseudocode.txt");
-		setGoodFeedbackPath("src/resources/Intro/GoodFeedback.html");
-		setBadFeedbackPath("src/resources/Intro/BadFeedback.html");
+		setDescriptionPath("resources/Intro/Description.html");
+		setPseudocodePath("resources/Intro/Pseudocode.txt");
+		setGoodFeedbackPath("resources/Intro/GoodFeedback.html");
+		setBadFeedbackPath("resources/Intro/BadFeedback.html");
 	}
 
 }

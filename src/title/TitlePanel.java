@@ -2,7 +2,6 @@ package title;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.image.BufferedImage;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -41,7 +40,8 @@ public class TitlePanel extends JPanel {
 		panel_2.add(panel);
 		panel.setOpaque(false);
 		panel.setLayout(new BorderLayout(0, 0));
-		ImageIcon flowerIcon = new ImageIcon("src/resources/Flower.gif");
+		ImageIcon flowerIcon = new ImageIcon(getClass().getClassLoader()
+				.getResource("resources/Flower.gif"));
 		JLabel flowerLabel = new JLabel(flowerIcon);
 		panel.add(flowerLabel);
 
