@@ -10,6 +10,10 @@ public class ExerciseTemplate {
 			a.add(b.getChoiceString());
 		return (String[]) a.toArray(new String[a.size()]);
 	}
+	
+	public static String wrapHTMLCode(String s) {
+		return "<html><code>" + s + "</html></code>";
+	}
 
 	// local class
 	public class Choice {
