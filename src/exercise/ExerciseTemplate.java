@@ -10,7 +10,7 @@ public class ExerciseTemplate {
 			a.add(b.getChoiceString());
 		return (String[]) a.toArray(new String[a.size()]);
 	}
-	
+
 	public static String wrapHTMLCode(String s) {
 		return "<html><code>" + s + "</html></code>";
 	}
@@ -53,7 +53,7 @@ public class ExerciseTemplate {
 	}
 
 	private String descriptionPath, pseudocodePath, goodFeedbackPath,
-			badFeedbackPath;
+			goodIconPath, badFeedbackPath, badIconPath;
 
 	public String getDescriptionPath() {
 		return descriptionPath;
@@ -85,5 +85,21 @@ public class ExerciseTemplate {
 
 	public void setBadFeedbackPath(String badFeedbackPath) {
 		this.badFeedbackPath = badFeedbackPath;
+	}
+
+	public String getBadIconPath() {
+		return badIconPath;
+	}
+
+	public void setBadIconPath(String badIconPath) {
+		this.badIconPath = badIconPath;
+	}
+
+	public String getGoodIconPath() {
+		return goodIconPath;
+	}
+
+	public void setGoodIconPath(String goodIconPath) {
+		this.goodIconPath = goodIconPath;
 	}
 }
