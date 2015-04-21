@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
@@ -169,13 +171,28 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		Scanner s;
 		String pathname;
 		int messageType;
+		Icon messageIcon = null;
 
 		if (formGeneratedContentPanel.getGrade()) {
 			pathname = exerciseTemplate.getGoodFeedbackPath();
 			messageType = JOptionPane.INFORMATION_MESSAGE;
+			try {
+				messageIcon = new ImageIcon(getClass().getClassLoader()
+						.getResource((exerciseTemplate.getGoodIconPath())));
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} else {
 			pathname = exerciseTemplate.getBadFeedbackPath();
 			messageType = JOptionPane.ERROR_MESSAGE;
+			try {
+				messageIcon = new ImageIcon(getClass().getClassLoader()
+						.getResource((exerciseTemplate.getBadIconPath())));
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 		s = new Scanner(getClass().getClassLoader().getResourceAsStream(
@@ -187,7 +204,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		 * https://bugs.openjdk.java.net/browse/JDK-8042134
 		 */
 		JOptionPane.showMessageDialog(null, new JLabel(s.next()), "Results",
-				messageType);
+				messageType, messageIcon);
 		s.close();
 	}
 
