@@ -42,7 +42,7 @@ public class ExerciseScanf extends ExerciseTemplate{
 				{ "<html><code>}</code></html>"}
 		});
 		
-		String parentPath = "resources/scanf/";
+		String parentPath = "resources/Scanf/";
 		setDescriptionPath(parentPath + "Description.html");
 		setPseudocodePath(parentPath + "Pseudocode.txt");
 		setGoodFeedbackPath(parentPath + "GoodFeedback.html");
