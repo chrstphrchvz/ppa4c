@@ -35,8 +35,8 @@ public class ExerciseStructure extends ExerciseTemplate{
 				},
 				//First selection end
 				//-----------------------------------------------------------------------------
-				{ "<html><code>&#09;aeneid.lines = 9896;</code></html>"},
-				{ "<html><code>&#09;aeneidPtr = &amp;aenid;</code></html>"},
+				{ "<html><code>&#09;</code></html>", "<html><code>&#09;aeneid.lines = 9896;</code></html>"},
+				{ "<html><code>&#09;</code></html>", "<html><code>&#09;aeneidPtr = &amp;aenid;</code></html>"},
 				{ "<html><code>&#09;</code></html>"}, //empty line
 				//-----------------------------------------------------------------------------
 				//Second selection begin
