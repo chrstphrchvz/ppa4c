@@ -29,9 +29,9 @@ public class ExerciseConditionals extends ExerciseTemplate {
 				{ "<html><code>&#09;</code></html>",
 						"<html><code>return 0;</code></html>" },
 				{ "<html><code>}</code></html>" } });
-		setDescriptionPath("resources/Conditionals/ConditionalsElse.htm");
+		setDescriptionPath("resources/Conditionals/Conditionals.htm");
 		setPseudocodePath("resources/Conditionals/Pseudocode.txt");
 		setGoodFeedbackPath("resources/Conditionals/GoodFeedback.html");
-		setBadFeedbackPath("resources/Conditionals/BadFeedback2.html");
+		setBadFeedbackPath("resources/Conditionals/BadFeedback.html");
 	}
 }
