@@ -1,0 +1,9 @@
+Main program
+	Declare integer variable
+	Declare a char array of size 100.
+	Declare a float 
+	
+	Store the integer
+	Store 7 characters into the char array
+	Store the float	
+End

@@ -108,6 +108,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 
 		pseudocodeScrollPane.setViewportView(pseudocodeEditorPane);
 		splitPane.setRightComponent(formTopPanel);
+		splitPane.setDividerLocation(500);
 
 		formScrollPane = new JScrollPane();
 		formTopPanel.add(formScrollPane, BorderLayout.CENTER);

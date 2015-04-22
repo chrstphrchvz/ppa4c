@@ -1,0 +1,9 @@
+Start
+	Create a struct
+	Begin main loop
+	Declare an instance of a struct
+	Declare a pointer instance of a struct
+	Give values to members of the struct through member operator
+	Assign the declared struct’s address to the pointer declaration.
+	Print members value to console by accessing them through arrow operators
+End
