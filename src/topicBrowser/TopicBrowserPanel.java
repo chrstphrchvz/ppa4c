@@ -64,7 +64,8 @@ public class TopicBrowserPanel extends JPanel {
 				exercise.ExercisePrintf1.class.getName())));
 		node_1.add(new DefaultMutableTreeNode(new Topic("Output: printf() 2",
 				exercise.ExercisePrintf2.class.getName())));
-		node_1.add(new DefaultMutableTreeNode("Input:     scanf()"));
+		node_1.add(new DefaultMutableTreeNode(new Topic("Input: scanf()",
+				exercise.ExerciseScanf.class.getName())));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Conditional Constructs");
 		node_1.add(new DefaultMutableTreeNode(new Topic("if",
@@ -97,6 +98,9 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode(new Topic("output",
 				exercise.ExerciseFileIO.class.getName())));
 		cRootTreeNode.add(node_1);
+		cRootTreeNode.add(new DefaultMutableTreeNode(
+				new Topic("Structures", exercise.ExerciseStructure.class
+						.getName())));
 		jTree1.setModel(new DefaultTreeModel(cRootTreeNode));
 		jScrollPane2 = new javax.swing.JScrollPane(jTree1);
 		add(jScrollPane2);

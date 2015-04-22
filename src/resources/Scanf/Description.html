@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<p>
+   <title>Scanf()</title>
+</p>
+<p>
+<h1>SCANF</h1>
+<p>
+    Introduction
+</p>
+<p>
+    The function, scanf(), reads data from the console or from a FILE stream, parses it, and stores the results away in variables you provide in the argument
+    list. scanf() has a prerequisite that must be met prior to being called. Firstly, there must some variable that can store whatever information is about to
+    be collected from scanf().
+</p>
+<p>
+    Percent-Codes
+</p>
+<p>
+    scanf() uses a variety percent-codes to denote what type of data will collected and stored.
+</p>
+<p>
+    %d Reads an integer to be stored in an int. The integer may be signed.
+</p>
+<p>
+    %f Reads a floating point number. The data will be stored in a float.
+</p>
+<p>
+    %s Reads a string. Please note that scanf() will stop at the first instance of whitespace character. With <code>%s</code>, a programmer can also designate a specified
+    field width. (e.g. %5s)
+</p>
+<p>
+    %c Reads a character that will be stored in a char. The programmar may also specify the field width.
+</p>
+<br><br>
+<p>
+    Example
+</p>
+<p>
+   <code> //---------------------------------------------------------------------------------------------------</code>
+</p>
+<p>
+    int a; // Declared variable where data will be stored.
+</p>
+<p>
+    scanf(&quot;%d&quot;, &amp;a); // Store an int into variable a
+</p>
+<p>
+    <code> //---------------------------------------------------------------------------------------------------</code>
+
+</p>
+<p>
+    float d; //declare a float variable
+</p>
+<p>
+    scanf( &quot;%&quot;, &amp;d ); //Store a float into a variable d
+</p>
+<p>
+    <code> //---------------------------------------------------------------------------------------------------</code>
+
+</p>
+<p>
+    char s[50]; //Declare a char array capable of holding 50 characters
+</p>
+<p>
+    scanf( &quot;%10s&quot;, s ); //Store a string of field width 10 into s
+</p>
+<p>
+   <code> //---------------------------------------------------------------------------------------------------</code>
+
+</p>
+<p>
+    Reference
+</p>
+<p>
+    http://beej.us/guide/bgc/output/html/multipage/scanf.html
+</p>

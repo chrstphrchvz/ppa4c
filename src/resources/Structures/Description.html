@@ -1,0 +1,77 @@
+<h1>Structures</h1>
+
+<h2>Introduction</h2>
+
+<p>A structure is complex data type declaration that defines a <i>grouped</i> list of variables that are placed in a block of memory. Structures may contain variables of different data types. ( i.e. int, char, float, etc )</p>
+
+<h2>Structure Definition</h2>
+
+<p>The following is an example a struct definition. This structure, car, has two members. Members consist of variables which in turn consist of data types. </p>
+
+<img src="Struct.png" height="360" width="270" alt="Struct">
+
+
+
+<p>struct car {</p>
+
+<p>char *color; // Color of the car</p>
+
+<p>int doorNum; // Number of doors on the car</p>
+
+<p>}; // Please note that a struct ends with a semi-colon</p>
+
+
+
+<h2>Initializing a Structure</h2>
+
+<p>A structure is initialized similar to a datatype (i.e. int, char, float, etc )</p>
+
+<p>To declare a struct, a programmer must type in this fashion:</p>
+
+
+
+<p>struct car aCar; // “aCar” is the name of the specific instance of the car struct</p>
+
+
+
+<h2>Accessing Structure Members</h2>
+
+<p>A struct’s variables are accessed through a structure member operator ( . ) or a structure pointer operator ( -&gt; ). To obtain a struct’s size, the sizeof() function should be used. </p>
+
+<p>Example:</p>
+
+
+
+<p>D printf( “%s”, aCar.color ); //accessing color data through a declared struct</p>
+
+<p>D printf(“%s”, aCarPtr-&gt;color ); //accessing color data through a pointer</p>
+
+
+
+<h1>Example</h1>
+
+<p>struct car {</p>
+
+<p>char *color;</p>
+
+<p>int doorNum;</p>
+
+<p>};</p>
+
+<p>int main( void )</p>
+
+<p>{</p>
+
+<p>struct car aCar;</p>
+
+<p>struct car *carPtr;</p>
+
+<p>aCar.color = “Red”; // Access through member operator</p>
+
+<p>aCar.doorNum = 4;</p>
+
+<p>carPtr = &amp;aCar;</p>
+
+<p>printf( “%s\n%d\n”, carPtr-&gt;color, carPtr-&gt;doorNum ); //Access through arrow operator</p>
+
+<p>}</p>
