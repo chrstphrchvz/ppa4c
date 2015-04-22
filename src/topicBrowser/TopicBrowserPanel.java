@@ -64,7 +64,7 @@ public class TopicBrowserPanel extends JPanel {
 				exercise.ExercisePrintf1.class.getName())));
 		node_1.add(new DefaultMutableTreeNode(new Topic("Output: printf() 2",
 				exercise.ExercisePrintf2.class.getName())));
-		node_1.add(new DefaultMutableTreeNode(new Topic("Input: scanf()",
+		node_1.add(new DefaultMutableTreeNode(new Topic("Input:  scanf()",
 				exercise.ExerciseScanf.class.getName())));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("Conditional Constructs");
