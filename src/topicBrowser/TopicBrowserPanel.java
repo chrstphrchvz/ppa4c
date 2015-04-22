@@ -89,8 +89,10 @@ public class TopicBrowserPanel extends JPanel {
 				exercise.ExerciseString.class.getName())));
 		node_1 = new DefaultMutableTreeNode("Sorting");
 		node_1.add(new DefaultMutableTreeNode("Search"));
-		node_1.add(new DefaultMutableTreeNode("Bubble"));
-		node_1.add(new DefaultMutableTreeNode("Insertion"));
+		node_1.add(new DefaultMutableTreeNode(new Topic("Bubble",
+				exercise.ExerciseBubbleSort.class.getName())));
+		node_1.add(new DefaultMutableTreeNode(new Topic("Insertion",
+				exercise.ExerciseInsertionSort.class.getName())));
 		cRootTreeNode.add(node_1);
 		node_1 = new DefaultMutableTreeNode("File I/O");
 		node_1.add(new DefaultMutableTreeNode(new Topic("input",

@@ -1,0 +1,35 @@
+
+Start
+	Create array with 1000 elemnts
+	create integers x,y, and n
+	make boolean
+	ask for user to input amount of elements in array
+	ask user to input # of integers
+
+	for x less than n
+	scan elements into array[x]
+
+	do while
+	boolean equals false
+	
+	count y less than n -1
+	
+	if array[y] greater than array[y + 1]
+	create integer swap which is equal to array[y+1]
+	array[y+1] equal to array[y]
+	array[y] equal to swap
+	boolean equal to true
+	while(boolean)
+	print bubble list
+	count y less than equal to n - 1 
+	print array[y] elements
+
+Finish
+
+
+	
+
+
+
+
+

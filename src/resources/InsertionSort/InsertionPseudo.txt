@@ -1,0 +1,30 @@
+
+Start
+	Create an array with 1000 elements
+	values of x,y,z,n
+	
+	ask user to enter how many elements in the array
+	ask user to input the integers to the # of elements
+
+	for x equal to n
+	input the elements into array[x]
+	
+	for x less than equal toon-1
+	y equal x
+	
+	while  y greater than 0
+ 	AND array[y] less than array[y-1]
+
+	z equal to array [y]
+	array[y] equal to array[y-1]
+	array[y-1] equal to z
+
+	y decrements
+
+	Print array
+	
+	for x less than equal to n-1
+	print elements of array[x]
+
+
+Finish
