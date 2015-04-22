@@ -1,7 +1,7 @@
 package control;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
+
 import javax.swing.UIManager;
 import javax.swing.UIManager.*;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -48,12 +48,8 @@ public class PPA4C {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					@SuppressWarnings("unused")
 					MainWindow frame = new MainWindow();
-					frame.setVisible(true);
-
-					// http://stackoverflow.com/questions/479523/java-swing-maximize-window
-					frame.setExtendedState(frame.getExtendedState()
-							| JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
