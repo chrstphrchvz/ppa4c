@@ -50,7 +50,7 @@ public class ExercisePrintf2 extends ExerciseTemplate {
 								new Choice("<html><code>%lf</code></html>",
 										false),
 								new Choice("<html><code>%c</code></html>", true) },
-						"<html><code>\n&quot;, a, b, c);</code></html>" },
+						"<html><code>\\n&quot;, a, b, c);</code></html>" },
 				{
 						"<html><code>&#09;</code></html>",
 						"<html><code>printf(&quot;</code></html>",
@@ -64,7 +64,7 @@ public class ExercisePrintf2 extends ExerciseTemplate {
 										false),
 								new Choice("<html><code>%c</code></html>",
 										false) },
-						"<html><code>&quot;);</code></html>" },
+						"<html><code>&quot;, x);</code></html>" },
 
 				{ "<html><code>&#09;</code></html>",
 						"<html><code>return 0;</code></html>" },
