@@ -27,8 +27,6 @@ public class MainWindow extends JFrame {
 		setContentPane(contentPane);
 
 		setVisible(true);
-		// http://stackoverflow.com/questions/479523/java-swing-maximize-window
-		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
 		splitPane = new JSplitPane();
 		splitPane.setOneTouchExpandable(true);
@@ -45,6 +43,9 @@ public class MainWindow extends JFrame {
 		splitPane.setDividerLocation(300);
 		setTitle("PPA4C");
 		pack();
+
+		// http://stackoverflow.com/questions/479523/java-swing-maximize-window
+		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 
 	public void setExercise(ExerciseTemplate exerciseTemplate) {
