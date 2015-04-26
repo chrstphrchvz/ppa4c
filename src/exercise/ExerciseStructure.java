@@ -1,7 +1,5 @@
 package exercise;
 
-import exercise.ExerciseTemplate.Choice;
-
 public class ExerciseStructure extends ExerciseTemplate{
 	public ExerciseStructure(){
 
