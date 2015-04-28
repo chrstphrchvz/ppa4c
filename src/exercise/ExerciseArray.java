@@ -12,8 +12,6 @@ public class ExerciseArray extends ExerciseTemplate {
 				{
 						"<html><code>int onedim</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>(5);</code></html>",
 										false),
 								new Choice("<html><code>[5];</code></html>",
@@ -27,8 +25,6 @@ public class ExerciseArray extends ExerciseTemplate {
 				{
 						"<html><code>onedim</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>[0]=1</code></html>",
 										true),
 								new Choice("<html><code>[1]=1</code></html>",
@@ -42,8 +38,6 @@ public class ExerciseArray extends ExerciseTemplate {
 				{
 						"<html><code>onedim</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>[1]=2</code></html>",
 										true),
 								new Choice("<html><code>[2]=2</code></html>",
@@ -57,8 +51,6 @@ public class ExerciseArray extends ExerciseTemplate {
 				{
 						"<html><code>onedim</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>[2]=3</code></html>",
 										true),
 								new Choice("<html><code>[3]=3</code></html>",
@@ -73,8 +65,6 @@ public class ExerciseArray extends ExerciseTemplate {
 				{
 						"<html><code>int onedim</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>(5)(5)</code></html>",
 										false),
 								new Choice("<html><code>[5,5]</code></html>",

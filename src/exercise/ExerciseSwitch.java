@@ -13,8 +13,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code>weekday = 5;</code></html>"},	
 				//switch
 				{ 	new Choice[] {
-						new Choice("<html><code>&nbsp;</code></html>",
-								false),
 						new Choice("<html><code>switch</code></html>",
 								true),
 						new Choice(
@@ -30,8 +28,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				//case1
 				{	"<html><code>&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										false),
@@ -41,8 +37,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code> 1: printf(&quot;Monday\\n&quot;);</code></html>",
 					"<html><code>&#09;&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										true),
@@ -52,8 +46,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				//case2
 				{	"<html><code>&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										false),
@@ -63,8 +55,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code> 2: printf(&quot;Tuesday\\n&quot;);</code></html>",
 					"<html><code>&#09;&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										true),
@@ -74,8 +64,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				//case3
 				{	"<html><code>&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										false),
@@ -85,8 +73,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code> 3: printf(&quot;Wednesday\\n&quot;);</code></html>",
 					"<html><code>&#09;&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										true),
@@ -96,8 +82,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				//case4
 				{	"<html><code>&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										false),
@@ -107,8 +91,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code> 4: printf(&quot;Thusday\\n&quot;);</code></html>",
 					"<html><code>&#09;&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										true),
@@ -118,8 +100,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				//case5
 				{	"<html><code>&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										false),
@@ -129,8 +109,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code> 5: printf(&quot;Friday\\n&quot;);</code></html>",
 					"<html><code>&#09;&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										true),
@@ -140,8 +118,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				//case6
 				{	"<html><code>&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										false),
@@ -151,8 +127,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code> 6: printf(&quot;Saturday\\n&quot;);</code></html>",
 					"<html><code>&#09;&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										true),
@@ -162,8 +136,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 				//case7
 				{	"<html><code>&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										false),
@@ -173,8 +145,6 @@ public class ExerciseSwitch extends ExerciseTemplate {
 					"<html><code> 7: printf(&quot;Sunday\\n&quot;);</code></html>",
 					"<html><code>&#09;&#09;</code></html>",
 							new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>break;</code></html>",
 										true),

@@ -20,8 +20,6 @@ public class ExerciseIfElse extends ExerciseTemplate {
 						"<html><code>&#09;</code></html>",
 						"<html><code>if(x </code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>&gt;=</code></html>",
 										true),
 								new Choice("<html><code>&lt;=</code></html>",
@@ -35,7 +33,6 @@ public class ExerciseIfElse extends ExerciseTemplate {
 						"<html><code>x1 = x1 - 2;</code></html>" },
 				// else
 				{ new Choice[] {
-						new Choice("<html><code>&nbsp;</code></html>", false),
 						new Choice("<html><code>if</code></html>", false),
 						new Choice("<html><code>else</code></html>", true),
 						new Choice("<html><code>switch</code></html>", false),
@@ -46,8 +43,6 @@ public class ExerciseIfElse extends ExerciseTemplate {
 				// if2
 				{
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>else if</code></html>",
 										false),
 								new Choice("<html><code>else</code></html>",
@@ -60,7 +55,6 @@ public class ExerciseIfElse extends ExerciseTemplate {
 						"<html><code>x2 = x2 - 2;</code></html>" },
 				// else2
 				{ new Choice[] {
-						new Choice("<html><code>&nbsp;</code></html>", false),
 						new Choice("<html><code>if</code></html>", false),
 						new Choice("<html><code>else</code></html>", true),
 						new Choice("<html><code>switch</code></html>", false),

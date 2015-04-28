@@ -14,34 +14,34 @@ public class FormGeneratedContentPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public FormGeneratedContentPanel(Object[][] lineArray) {
-		System.err.println("l23");
+		System.err.println("FGCP invoked");
 		linePanelArray = new ArrayList<JPanel>();
 		questionComboBoxArray = new ArrayList<JComboBox<String>>();
 		answerArray = new ArrayList<String>();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		// parse lineArray
 		for (Object[] line : lineArray) {
-			System.err.println("l30");
+			System.err.println("FGCP: Parsing line");
 			// parse line
 			linePanelArray.add(new JPanel());
 			linePanelArray.get(linePanelArray.size() - 1).setLayout(
 					new FlowLayout(FlowLayout.LEFT, 5, 5));
 			for (Object segment : line) {
-				System.err.println("l36");
+				System.err.println("FGCP: Parsing segment");
 				// generate label from strings
 				if (segment instanceof String) {
-					System.err.println("l39");
+					System.err.println("FGCP: segment is String");
 					linePanelArray.get(linePanelArray.size() - 1).add(
 							new JLabel((String) segment));
 				}
 				// generate combobox from Choice[] and record correct answer
 				else if (segment instanceof Choice[]) {
-					System.err.println("l45");
+					System.err.println("FGCP: segment is Choice[]");
 					// find and save EXACTLY 1 correct answer
 					for (Choice c : (Choice[]) segment) {
-						System.err.println("l48");
+						System.err.println("FGCP: Choice");
 						if (c.getChoiceIsCorrect()) {
-							System.err.println("l50" + c.getChoiceString());
+							System.err.println("FGCP: Correct distractor: " + c.getChoiceString());
 							answerArray.add(c.getChoiceString());
 						}
 					}
@@ -59,7 +59,7 @@ public class FormGeneratedContentPanel extends JPanel {
 			}
 		}
 		for (JPanel linePanel : linePanelArray) {
-			System.err.println("l65");
+			System.err.println("FGCP: Adding linePanel");
 			add(linePanel);
 		}
 
