@@ -4,17 +4,26 @@ This is the pseudocode area,
 where notes for a program will appear.
 
 Note that most lines of the pseudocode
-will correspond to lines of the actual program. 
+will correspond to lines of the actual program, e.g.: 
+	
+    Pseudocode                        C code
 
-To the right is the C program form, a.k.a. "Your work".
+    initialize n to 15        ->      int n = 15;
+    loop until n is 0:        ->      while(n != 0){ 
+        print n               ->          printf("%d", n);
+        subtract 3 from n     ->          n -= 3;}
+
+
+On the right-hand side of the screen is the C program form,
+a.k.a. "Your work".
 Most of the C program is done for you;
 use the drop-down boxes to finish the program.
 
 For this intro, set each choice
 to obtain the statements below: 
-	int a = 9;
-	double b = 4.0;
-	char c = 'q';
+    int a = 9;
+    double b = 4.0;
+    char c = 'q';
 
 Pick your answers, and then click "Check work"
 in the lower-right corner.

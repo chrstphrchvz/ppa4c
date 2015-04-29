@@ -13,8 +13,6 @@ public class ExerciseString extends ExerciseTemplate {
 				{
 						"<html><code>char string[50]=</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>\"Hello World!\"</code></html>",
 										true),
@@ -30,8 +28,6 @@ public class ExerciseString extends ExerciseTemplate {
 				{
 						"<html><code>i=</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice(
 										"<html><code>stringlength(string)</code></html>",
 										false),
@@ -47,8 +43,6 @@ public class ExerciseString extends ExerciseTemplate {
 				{
 						"<html><code>printf(\"The string is: \n</code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>%c</code></html>",
 										false),
 								new Choice("<html><code>#c</code></html>",

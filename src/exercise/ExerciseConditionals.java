@@ -15,8 +15,6 @@ public class ExerciseConditionals extends ExerciseTemplate {
 						"<html><code>&#09;</code></html>",
 						"<html><code>if(x </code></html>",
 						new Choice[] {
-								new Choice("<html><code>&nbsp;</code></html>",
-										false),
 								new Choice("<html><code>&gt;=</code></html>",
 										true),
 								new Choice("<html><code>&lt;=</code></html>",

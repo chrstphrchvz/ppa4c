@@ -1,0 +1,148 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<p align="center">
+			<strong>Bubble Sort</strong></p>
+		<div>
+			<p align="center">
+				&nbsp;</p>
+		</div>
+		<p>
+			&nbsp;</p>
+		<p>
+			Bubble sort is a sorting algorithm, the way it works is that it passes through a list comparing and swaps anything in the wrong order. It keeps repeating from the beginning of the list until there are no more comparisons to be made.</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp;</p>
+		<p>	
+			<img src="Bubble-sort-example-300px.gif" />
+			</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			This image shows a quick example of how bubble sort works. We first must go over an area which is simply a field of elements. For example</p>
+		<p>
+			int array[1000];</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			An array could vary in size, but by using a bubble sort you can sort the field&rsquo;s components and order them. Depending on what order, you can compare each component/value and swap them to your order. Bubble sort is the least efficient of the 3 sorts that we are doing but it is a good concept to know. Here is an example of bubble sort:</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			<em>/* Bubble sort code */</em></p>
+		<p>
+			&nbsp;</p>
+		<p>
+			#include &lt;stdio.h&gt;</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			int main()</p>
+		<p>
+			{</p>
+		<p>
+			&nbsp; int array[100], n, c, d, swap;</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp; printf(&quot;Enter number of elements<strong>\n</strong>&quot;);</p>
+		<p>
+			&nbsp; scanf(&quot;%d&quot;, &amp;n);</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp; printf(&quot;Enter %d integers<strong>\n</strong>&quot;, n);</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp; for (c = 0; c &lt; n; c++)</p>
+		<p>
+			&nbsp;&nbsp;&nbsp; scanf(&quot;%d&quot;, &amp;array[c]);</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp; for (c = 0 ; c &lt; ( n - 1 ); c++)</p>
+		<p>
+			&nbsp; {</p>
+		<p>
+			&nbsp;&nbsp;&nbsp; for (d = 0 ; d &lt; n - c - 1; d++)</p>
+		<p>
+			&nbsp;&nbsp;&nbsp; {</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (array[d] &gt; array[d+1]) <em>/* For decreasing order use &lt; */</em></p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = array[d];</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; array[d]&nbsp;&nbsp; = array[d+1];</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; array[d+1] = swap;</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+		<p>
+			&nbsp;&nbsp;&nbsp; }</p>
+		<p>
+			&nbsp; }</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp; printf(&quot;Sorted list in ascending order:<strong>\n</strong>&quot;);</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp; for ( c = 0 ; c &lt; n ; c++ )</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp; printf(&quot;%d<strong>\n</strong>&quot;, array[c]);</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp; return 0;</p>
+		<p>
+			}</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			Once you enter the number of elements such as 6, it asks you to input 6 numbers. Then it assorts them through bubble sorting outputting the list of numbers in ascending order.</p>
+		<p>
+			Enter a number of elements</p>
+		<p>
+			6</p>
+		<p>
+			Enter 6 integers</p>
+		<p>
+			9</p>
+		<p>
+			4</p>
+		<p>
+			-3</p>
+		<p>
+			2</p>
+		<p>
+			7</p>
+		<p>
+			7</p>
+		<p>
+			Sorted list in ascending order:</p>
+		<p>
+			-3</p>
+		<p>
+			2</p>
+		<p>
+			4</p>
+		<p>
+			7</p>
+		<p>
+			7</p>
+		<p>
+			9</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			In this example, we are using for loops to count while comparing sections of code, this example can be simplified but it&rsquo;s to show how it bubble sorting will work, in the problem you are about to do pay close attentions to the syntax and really consider how the array is comparing just like the gif above.</p>
+	</body>
+</html>

@@ -88,6 +88,5 @@ public class ExercisePointers extends ExerciseTemplate {
 		setPseudocodePath(parentPath + "Pseudocode.txt");
 		setGoodFeedbackPath(parentPath + "GoodFeedback.html");
 		setBadFeedbackPath(parentPath + "BadFeedback.html");
-		setBadIconPath(parentPath + "chan.png");
 	}
 }
