@@ -1,0 +1,21 @@
+start
+
+set variables
+
+while x is less than n equal to 10 
+
+   let index be equal to x
+
+   set y equal to x while x is less than n add one to y
+
+      if the number in the index position of array is less than y position in the array
+
+         set index equal to y
+
+      set temp equal to array position x
+
+      set array position x equal to array position index
+
+      set array position index equal to temp
+
+end
