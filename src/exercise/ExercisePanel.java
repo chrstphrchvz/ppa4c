@@ -22,6 +22,7 @@ import javax.swing.UIManager;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.border.TitledBorder;
+import java.awt.Font;
 
 public class ExercisePanel extends JPanel implements ActionListener {
 
@@ -102,6 +103,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		pseudocodeTopPanel.add(pseudocodeScrollPane, BorderLayout.CENTER);
 
 		pseudocodeEditorPane = new JEditorPane();
+		pseudocodeEditorPane.setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 12));
 		pseudocodeEditorPane.setEditable(false);
 		pseudocodeEditorPane.setBackground(UIManager.getDefaults().getColor(
 				"ToolTip.background"));
