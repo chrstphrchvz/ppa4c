@@ -90,10 +90,13 @@ public class TopicBrowserPanel extends JPanel {
 				if (node == null)
 					return; /* Do Nothing */
 				else
-					System.out.println(node);
-				if (node.getUserObject() instanceof Topic) {
-					mainWindow.setExercise((Topic) node.getUserObject());
-				}
+					System.err.println("TBP : selected node \"" + node + "\"");
+				if (node.isLeaf()) {
+					if (node.getUserObject() instanceof Topic)
+						mainWindow.setExercise((Topic) node.getUserObject());
+				} else
+					mainWindow.showTitlePanel();
+
 			}
 		});
 	}
