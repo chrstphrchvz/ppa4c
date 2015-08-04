@@ -22,10 +22,6 @@ public class TitlePanel extends JPanel {
 	 */
 	public TitlePanel() {
 		setLayout(new BorderLayout(0, 0));
-		footerJLabel = new JLabel("<html><h1>Click on a topic to begin</h1></html>");
-		footerJLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		add(footerJLabel, BorderLayout.SOUTH);
-
 		setBackground(Color.WHITE);
 
 		twoColumnPanel = new JPanel();
@@ -49,6 +45,10 @@ public class TitlePanel extends JPanel {
 				"<html><font face=\"Helvetica\" size=\"36\">Pseudocode<br>Programming<br>Assistant</font><br><font face=\"Times New Roman\" size=\"36\"><i>&nbsp;for</i> <b>C</b></font></html>");
 		rightColumnPanel.setLayout(new BorderLayout(0, 0));
 		rightColumnPanel.add(titleJLabel);
+		
+		footerJLabel = new JLabel("<html><h1>Click on a topic to begin</h1></html>");
+		footerJLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		add(footerJLabel, BorderLayout.SOUTH);
 
 	}
 
