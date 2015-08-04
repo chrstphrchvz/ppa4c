@@ -8,7 +8,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
 import mainWindow.MainWindow;
-import exercise.ExerciseTemplate;
 import javax.swing.border.TitledBorder;
 
 public class TopicBrowserPanel extends JPanel {
@@ -16,37 +15,6 @@ public class TopicBrowserPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	// Local class
-	public class Topic {
-		public Topic(String topicNodeString, String topicClassString) {
-			setTopicNodeString(topicNodeString);
-			setTopicClassString(topicClassString);
-		}
-
-		private String topicNodeString;
-		private String topicClassString;
-
-		public void setTopicClassString(String topicClassString) {
-			this.topicClassString = topicClassString;
-		}
-
-		public void setTopicNodeString(String topicNodeString) {
-			this.topicNodeString = topicNodeString;
-		}
-
-		public String getTopicClassString() {
-			return topicClassString;
-		}
-
-		public String getTopicNodeString() {
-			return topicNodeString;
-		}
-
-		public String toString() {
-			return getTopicNodeString();
-		}
-
-	}
 
 	public TopicBrowserPanel(final MainWindow mainWindow) {
 		setBorder(new TitledBorder(null, "Topics", TitledBorder.LEADING,
@@ -125,21 +93,7 @@ public class TopicBrowserPanel extends JPanel {
 				else
 					System.out.println(node);
 				if (node.getUserObject() instanceof Topic) {
-					try {
-						mainWindow.setExercise((ExerciseTemplate) Class
-								.forName(
-										((Topic) node.getUserObject())
-												.getTopicClassString())
-								.newInstance());
-						mainWindow.setTitle("PPA4C - "
-								+ ((Topic) node.getUserObject())
-										.getTopicNodeString());
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
-
+					mainWindow.setExercise((Topic) node.getUserObject());
 				}
 			}
 		});
