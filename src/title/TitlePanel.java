@@ -11,48 +11,44 @@ import javax.swing.border.EmptyBorder;
 
 public class TitlePanel extends JPanel {
 
-	private javax.swing.JButton jButton1;
-	private javax.swing.JLabel jLabel1;
-	private JPanel panel_1;
-	private JPanel panel;
-	private JLabel jLabel2;
-	private JPanel panel_2;
+	private javax.swing.JLabel titleJLabel;
+	private JPanel rightColumnPanel;
+	private JPanel leftColumnPanel;
+	private JLabel footerJLabel;
+	private JPanel twoColumnPanel;
 
 	/**
 	 * Create the panel.
 	 */
 	public TitlePanel() {
 		setLayout(new BorderLayout(0, 0));
-		jButton1 = new javax.swing.JButton();
-		jLabel2 = new JLabel(
-				"<html><h1>Click on a topic to begin</h1></html>");
-		jLabel2.setHorizontalAlignment(SwingConstants.CENTER);
-		add(jLabel2, BorderLayout.SOUTH);
+		footerJLabel = new JLabel("<html><h1>Click on a topic to begin</h1></html>");
+		footerJLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		add(footerJLabel, BorderLayout.SOUTH);
 
 		setBackground(Color.WHITE);
-		jButton1.setText("Begin");
 
-		panel_2 = new JPanel();
-		add(panel_2, BorderLayout.CENTER);
-		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
-		panel_2.setOpaque(false);
-		panel = new JPanel();
-		panel_2.add(panel);
-		panel.setOpaque(false);
-		panel.setLayout(new BorderLayout(0, 0));
+		twoColumnPanel = new JPanel();
+		add(twoColumnPanel, BorderLayout.CENTER);
+		twoColumnPanel.setLayout(new BoxLayout(twoColumnPanel, BoxLayout.X_AXIS));
+		twoColumnPanel.setOpaque(false);
+		leftColumnPanel = new JPanel();
+		twoColumnPanel.add(leftColumnPanel);
+		leftColumnPanel.setOpaque(false);
+		leftColumnPanel.setLayout(new BorderLayout(0, 0));
 		ImageIcon flowerIcon = new ImageIcon(getClass().getClassLoader()
 				.getResource("resources/Flower.gif"));
 		JLabel flowerLabel = new JLabel(flowerIcon);
-		panel.add(flowerLabel);
+		leftColumnPanel.add(flowerLabel);
 
-		panel_1 = new JPanel();
-		panel_2.add(panel_1);
-		panel_1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel_1.setOpaque(false);
-		jLabel1 = new JLabel(
+		rightColumnPanel = new JPanel();
+		twoColumnPanel.add(rightColumnPanel);
+		rightColumnPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		rightColumnPanel.setOpaque(false);
+		titleJLabel = new JLabel(
 				"<html><font face=\"Helvetica\" size=\"36\">Pseudocode<br>Programming<br>Assistant</font><br><font face=\"Times New Roman\" size=\"36\"><i>&nbsp;for</i> <b>C</b></font></html>");
-		panel_1.setLayout(new BorderLayout(0, 0));
-		panel_1.add(jLabel1);
+		rightColumnPanel.setLayout(new BorderLayout(0, 0));
+		rightColumnPanel.add(titleJLabel);
 
 	}
 
