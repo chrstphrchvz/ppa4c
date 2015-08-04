@@ -43,7 +43,7 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode(new Topic("switch",
 				exercise.ExerciseSwitch.class.getName())));
 		cRootTreeNode.add(node_1);
-		node_1 = new DefaultMutableTreeNode("Loops\t");
+		node_1 = new DefaultMutableTreeNode("Loops");
 		node_1.add(new DefaultMutableTreeNode(new Topic("while",
 				exercise.ExerciseWhile.class.getName())));
 		node_1.add(new DefaultMutableTreeNode(new Topic("for",
@@ -69,9 +69,8 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode(new Topic("output",
 				exercise.ExerciseFileIO.class.getName())));
 		cRootTreeNode.add(node_1);
-		cRootTreeNode.add(new DefaultMutableTreeNode(
-				new Topic("Structures", exercise.ExerciseStructure.class
-						.getName())));
+		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Structures",
+				exercise.ExerciseStructure.class.getName())));
 		jTree1.setModel(new DefaultTreeModel(cRootTreeNode));
 		jScrollPane2 = new javax.swing.JScrollPane(jTree1);
 		add(jScrollPane2);
