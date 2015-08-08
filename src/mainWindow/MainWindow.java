@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+
+import topicBrowser.Topic;
 import exercise.ExercisePanel;
 import exercise.ExerciseTemplate;
 
@@ -35,23 +37,42 @@ public class MainWindow extends JFrame {
 				.getPreferredSize().height));
 		leftComp.setMinimumSize(new Dimension(0,
 				leftComp.getMinimumSize().height));
-		rightComp = new title.TitlePanel();
+		showTitlePanel();
 		contentPane.add(splitPane, BorderLayout.CENTER);
 		splitPane.setLeftComponent(leftComp);
-		splitPane.setRightComponent(rightComp);
 
 		splitPane.setDividerLocation(300);
-		setTitle("PPA4C");
 		pack();
 
 		// http://stackoverflow.com/questions/479523/java-swing-maximize-window
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 
-	public void setExercise(ExerciseTemplate exerciseTemplate) {
+	public void setExercise(Topic exerciseTopic) {
+		ExerciseTemplate exerciseTemplate = null;
+		try {
+			exerciseTemplate = ((ExerciseTemplate) Class.forName(
+					exerciseTopic.getTopicClassString()).newInstance());
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		splitPane.remove(rightComp);
 		rightComp = new ExercisePanel(exerciseTemplate);
 		splitPane.setRightComponent(rightComp);
+		setTitle("PPA4C - " + exerciseTopic.getTopicNodeString());
+	}
+
+	public void showTitlePanel() {
+		rightComp = new title.TitlePanel();
+		splitPane.setRightComponent(rightComp);
+		setTitle("PPA4C");
 	}
 
 }

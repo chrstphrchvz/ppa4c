@@ -8,7 +8,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
 import mainWindow.MainWindow;
-import exercise.ExerciseTemplate;
 import javax.swing.border.TitledBorder;
 
 public class TopicBrowserPanel extends JPanel {
@@ -16,37 +15,6 @@ public class TopicBrowserPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	// Local class
-	public class Topic {
-		public Topic(String topicNodeString, String topicClassString) {
-			setTopicNodeString(topicNodeString);
-			setTopicClassString(topicClassString);
-		}
-
-		private String topicNodeString;
-		private String topicClassString;
-
-		public void setTopicClassString(String topicClassString) {
-			this.topicClassString = topicClassString;
-		}
-
-		public void setTopicNodeString(String topicNodeString) {
-			this.topicNodeString = topicNodeString;
-		}
-
-		public String getTopicClassString() {
-			return topicClassString;
-		}
-
-		public String getTopicNodeString() {
-			return topicNodeString;
-		}
-
-		public String toString() {
-			return getTopicNodeString();
-		}
-
-	}
 
 	public TopicBrowserPanel(final MainWindow mainWindow) {
 		setBorder(new TitledBorder(null, "Topics", TitledBorder.LEADING,
@@ -75,7 +43,7 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode(new Topic("switch",
 				exercise.ExerciseSwitch.class.getName())));
 		cRootTreeNode.add(node_1);
-		node_1 = new DefaultMutableTreeNode("Loops\t");
+		node_1 = new DefaultMutableTreeNode("Loops");
 		node_1.add(new DefaultMutableTreeNode(new Topic("while",
 				exercise.ExerciseWhile.class.getName())));
 		node_1.add(new DefaultMutableTreeNode(new Topic("for",
@@ -101,9 +69,8 @@ public class TopicBrowserPanel extends JPanel {
 		node_1.add(new DefaultMutableTreeNode(new Topic("output",
 				exercise.ExerciseFileIO.class.getName())));
 		cRootTreeNode.add(node_1);
-		cRootTreeNode.add(new DefaultMutableTreeNode(
-				new Topic("Structures", exercise.ExerciseStructure.class
-						.getName())));
+		cRootTreeNode.add(new DefaultMutableTreeNode(new Topic("Structures",
+				exercise.ExerciseStructure.class.getName())));
 		jTree1.setModel(new DefaultTreeModel(cRootTreeNode));
 		jScrollPane2 = new javax.swing.JScrollPane(jTree1);
 		add(jScrollPane2);
@@ -123,24 +90,13 @@ public class TopicBrowserPanel extends JPanel {
 				if (node == null)
 					return; /* Do Nothing */
 				else
-					System.out.println(node);
-				if (node.getUserObject() instanceof Topic) {
-					try {
-						mainWindow.setExercise((ExerciseTemplate) Class
-								.forName(
-										((Topic) node.getUserObject())
-												.getTopicClassString())
-								.newInstance());
-						mainWindow.setTitle("PPA4C - "
-								+ ((Topic) node.getUserObject())
-										.getTopicNodeString());
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
+					System.err.println("TBP : selected node \"" + node + "\"");
+				if (node.isLeaf()) {
+					if (node.getUserObject() instanceof Topic)
+						mainWindow.setExercise((Topic) node.getUserObject());
+				} else
+					mainWindow.showTitlePanel();
 
-				}
 			}
 		});
 	}
