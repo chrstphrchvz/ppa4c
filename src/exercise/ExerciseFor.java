@@ -9,7 +9,7 @@ public class ExerciseFor extends ExerciseTemplate {
 				{ "<html><code> &nbsp int x; </cod></html>" },
 				{ "<html><code> &nbsp int n; </code></html>" },
 				{ "<html><code> &nbsp printf(\"n?\");</code></html>" },
-				{ "<html><code> &nbsp scanf(\"%d\",&d);</code></html>" },
+				{ "<html><code> &nbsp scanf(\"%d\",&n);</code></html>" },
 				{
 						new Choice[] {
 								new Choice("<html><code>do</code></html>",
