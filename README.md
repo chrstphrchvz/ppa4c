@@ -5,4 +5,4 @@ Pseudocode is an informal programming language used to describe a program or alg
 
 The purpose of PPA4C is to help a student learn or review C programming by providing practice translating short pseudocode program descriptions into C, for which there does not appear to be an existing solution. PPA4C includes exercises for a variety of important topics in C programming. PPA4C was written in Java using Eclipse, and uses the Swing toolkit for the user interface. PPA4C runs on computers with Java Runtime Environment (e.g. Windows, OS X).
 
-[PPA4C Screenshot](screenshot.png "Screenshot of PPA4C")
+![PPA4C Screenshot](screenshot.png "Screenshot of PPA4C")
