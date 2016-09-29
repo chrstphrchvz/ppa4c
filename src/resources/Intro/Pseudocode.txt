@@ -26,6 +26,6 @@ to obtain the statements below:
     char c = 'q';
 
 Pick your answers, and then click "Check work"
-in the lower-right corner.
+in the upper-right corner.
 The Results dialog will then appear with feedback.
 	

@@ -78,7 +78,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		tabbedPane.addTab("Practice", null, practicePanel, null);
 		practicePanel.setLayout(new BorderLayout(0, 0));
 		buttonPanel = new JPanel();
-		practicePanel.add(buttonPanel, BorderLayout.SOUTH);
+		practicePanel.add(buttonPanel, BorderLayout.NORTH);
 		checkWorkButton = new JButton();
 
 		checkWorkButton.setText("Check work");
@@ -93,7 +93,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 
 		splitPane = new JSplitPane();
 		splitPane.setResizeWeight(0.5);
-		practicePanel.add(splitPane);
+		practicePanel.add(splitPane, BorderLayout.CENTER);
 
 		pseudocodeTopPanel = new JPanel();
 		pseudocodeTopPanel.setBorder(new TitledBorder(null, "Pseudocode:",
