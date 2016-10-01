@@ -1,6 +1,6 @@
 start
-define integers variables
-recieve input n from user
-for n iterations
-print hello
+  define integers variables
+  recieve input n from user
+  for n iterations
+    print hello
 end
