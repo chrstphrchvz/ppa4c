@@ -1,8 +1,8 @@
 <!-- Configuration file for launch4j (create Windows .exe wrapper) -->
 <launch4jConfig>
   <headerType>gui</headerType>
-  <outfile>ppa4c-20150804-r2.exe</outfile>
-  <jar>ppa4c-20150804-r2.jar</jar>
+  <outfile>ppa4c-20161020-r3.exe</outfile>
+  <jar>ppa4c-20161020-r3.jar</jar>
   <jre>
     <minVersion>1.8.0</minVersion>
   </jre>
