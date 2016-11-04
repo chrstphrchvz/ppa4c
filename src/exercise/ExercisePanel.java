@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
@@ -18,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
@@ -102,13 +105,13 @@ public class ExercisePanel extends JPanel implements ActionListener {
 		pseudocodeTopPanel.setLayout(new BorderLayout(0, 0));
 		pseudocodeTopPanel.add(pseudocodeScrollPane, BorderLayout.CENTER);
 
-		pseudocodeEditorPane = new JEditorPane();
-		pseudocodeEditorPane.setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 12));
-		pseudocodeEditorPane.setEditable(false);
-		pseudocodeEditorPane.setBackground(UIManager.getDefaults().getColor(
+		pseudocodeTextArea = new JTextArea();
+		pseudocodeTextArea.setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 12));
+		pseudocodeTextArea.setEditable(false);
+		pseudocodeTextArea.setBackground(UIManager.getDefaults().getColor(
 				"ToolTip.background"));
 
-		pseudocodeScrollPane.setViewportView(pseudocodeEditorPane);
+		pseudocodeScrollPane.setViewportView(pseudocodeTextArea);
 		splitPane.setRightComponent(formTopPanel);
 		splitPane.setDividerLocation(500);
 
@@ -137,10 +140,21 @@ public class ExercisePanel extends JPanel implements ActionListener {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-
-		try {
-			pseudocodeEditorPane.setPage(getClass().getClassLoader()
-					.getResource(exerciseTemplate.getPseudocodePath()));
+		
+		/*
+		 * Use try-reader block for Java ≥7
+		 * http://stackoverflow.com/a/13186887/4896937
+		 */
+		
+		try (FileReader reader = new FileReader(
+				getClass().getClassLoader().getResource(
+						exerciseTemplate.getPseudocodePath()
+						).getFile()
+				)) {
+			pseudocodeTextArea.read(reader, null);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -156,7 +170,7 @@ public class ExercisePanel extends JPanel implements ActionListener {
 	private JPanel buttonPanel;
 	private JPanel formTopPanel;
 	private JScrollPane pseudocodeScrollPane;
-	private JEditorPane pseudocodeEditorPane;
+	private JTextArea pseudocodeTextArea;
 	private JSplitPane splitPane;
 	private JScrollPane formScrollPane;
 	private JTabbedPane tabbedPane;
